@@ -1,0 +1,44 @@
+{
+  "rgb_image": "/home/s6323038/atomic-task/runs/smoke/sample.png",
+  "rgb_sha256": "0d2f7e5d7ff8f9527a4498d9d8fd0862ccfb296402503936e034c74a92dcc658",
+  "image_shape": [
+    224,
+    224,
+    3
+  ],
+  "device": "cpu",
+  "repeats": 5,
+  "max_process_rss_kib": 649180,
+  "measurements": [
+    {
+      "input_size": 518,
+      "seconds_median": 0.263458801433444,
+      "seconds_min": 0.25100534688681364,
+      "seconds_max": 0.2875858824700117,
+      "raw_min": 0.0,
+      "raw_max": 7.271359443664551,
+      "raw_std": 1.8653124570846558
+    },
+    {
+      "input_size": 392,
+      "seconds_median": 0.0796709693968296,
+      "seconds_min": 0.07932808622717857,
+      "seconds_max": 0.08536258060485125,
+      "raw_min": 0.0,
+      "raw_max": 6.575193405151367,
+      "raw_std": 1.5381214618682861,
+      "pixel_pearson_vs_518_one_frame": 0.9945996178090807
+    },
+    {
+      "input_size": 266,
+      "seconds_median": 0.03598679043352604,
+      "seconds_min": 0.03506752010434866,
+      "seconds_max": 0.03624545130878687,
+      "raw_min": 0.0,
+      "raw_max": 5.604201793670654,
+      "raw_std": 1.3380300998687744,
+      "pixel_pearson_vs_518_one_frame": 0.9911925817189391
+    }
+  ],
+  "scope": "one rendered smoke frame; timing and visual diagnostic only"
+}

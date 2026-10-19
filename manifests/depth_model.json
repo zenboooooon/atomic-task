@@ -1,0 +1,10 @@
+{
+  "model": "Depth Anything V2 Small",
+  "kind": "relative depth",
+  "source": "https://github.com/DepthAnything/Depth-Anything-V2",
+  "source_commit": "a561b849ebae10a6f5ef49e26c83cbbcd36c71bf",
+  "checkpoint": "https://huggingface.co/depth-anything/Depth-Anything-V2-Small/resolve/main/depth_anything_v2_vits.pth",
+  "checkpoint_sha256": "715fade13be8f229f8a70cc02066f656f2423a59effd0579197bbf57860e1378",
+  "input_size_status": "pilot candidate, not frozen",
+  "reference_input_size": 518
+}

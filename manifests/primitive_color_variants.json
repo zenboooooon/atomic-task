@@ -1,0 +1,175 @@
+{
+  "protocol_version": "gaze-v0.8-color-variants",
+  "primitive_tasks": [
+    "look",
+    "approach"
+  ],
+  "variants": [
+    {
+      "id": "color0",
+      "label": "orange / cyan",
+      "target_rgb": [
+        1.0,
+        0.38,
+        0.03
+      ],
+      "avatar_rgb": [
+        0.03,
+        0.82,
+        0.9
+      ]
+    },
+    {
+      "id": "color1",
+      "label": "green / blue",
+      "target_rgb": [
+        0.12,
+        0.9,
+        0.16
+      ],
+      "avatar_rgb": [
+        0.08,
+        0.22,
+        0.95
+      ]
+    },
+    {
+      "id": "color2",
+      "label": "brown / white",
+      "target_rgb": [
+        0.45,
+        0.22,
+        0.08
+      ],
+      "avatar_rgb": [
+        0.94,
+        0.94,
+        0.94
+      ]
+    }
+  ],
+  "heads": {
+    "look_color0": {
+      "task": "look",
+      "variant": "color0",
+      "appearance": {
+        "id": "color0",
+        "label": "orange / cyan",
+        "target_rgb": [
+          1.0,
+          0.38,
+          0.03
+        ],
+        "avatar_rgb": [
+          0.03,
+          0.82,
+          0.9
+        ]
+      }
+    },
+    "look_color1": {
+      "task": "look",
+      "variant": "color1",
+      "appearance": {
+        "id": "color1",
+        "label": "green / blue",
+        "target_rgb": [
+          0.12,
+          0.9,
+          0.16
+        ],
+        "avatar_rgb": [
+          0.08,
+          0.22,
+          0.95
+        ]
+      }
+    },
+    "look_color2": {
+      "task": "look",
+      "variant": "color2",
+      "appearance": {
+        "id": "color2",
+        "label": "brown / white",
+        "target_rgb": [
+          0.45,
+          0.22,
+          0.08
+        ],
+        "avatar_rgb": [
+          0.94,
+          0.94,
+          0.94
+        ]
+      }
+    },
+    "approach_color0": {
+      "task": "approach",
+      "variant": "color0",
+      "appearance": {
+        "id": "color0",
+        "label": "orange / cyan",
+        "target_rgb": [
+          1.0,
+          0.38,
+          0.03
+        ],
+        "avatar_rgb": [
+          0.03,
+          0.82,
+          0.9
+        ]
+      }
+    },
+    "approach_color1": {
+      "task": "approach",
+      "variant": "color1",
+      "appearance": {
+        "id": "color1",
+        "label": "green / blue",
+        "target_rgb": [
+          0.12,
+          0.9,
+          0.16
+        ],
+        "avatar_rgb": [
+          0.08,
+          0.22,
+          0.95
+        ]
+      }
+    },
+    "approach_color2": {
+      "task": "approach",
+      "variant": "color2",
+      "appearance": {
+        "id": "color2",
+        "label": "brown / white",
+        "target_rgb": [
+          0.45,
+          0.22,
+          0.08
+        ],
+        "avatar_rgb": [
+          0.94,
+          0.94,
+          0.94
+        ]
+      }
+    }
+  },
+  "composite": {
+    "target_rgb": [
+      0.85,
+      0.08,
+      0.9
+    ],
+    "avatar_rgb": [
+      1.0,
+      0.82,
+      0.08
+    ]
+  },
+  "head_initialization": "independent fresh actor and critic per task and color",
+  "shared_encoder": "one shared ViT for all six heads"
+}

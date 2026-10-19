@@ -1,0 +1,9 @@
+{
+  "camera_fix": "fixed yaw boom; pitch rotates view only",
+  "source_build_sha256": "b8b0ce892345f3b87464be442429cb6c51cb3323bb7d2ad1ea55b61933f6926a",
+  "treasure_build_sha256": "ac0aa940079f62adedb2177bb51607f043933a4dee5a28cf17f0e520c00a2091",
+  "treasure_layout_sha256": "87ac10711dd014898adcf62ae0edaa392441ef5d65cac49b39900c1d2c057049",
+  "composite_build_sha256": "7779e369b2e1cce0c4f7197bef39467280cc1cc77d2017320e4edf660deb5426",
+  "composite_layout_sha256": "87ac10711dd014898adcf62ae0edaa392441ef5d65cac49b39900c1d2c057049",
+  "scene_builder_sha256": "ca6a23257add7fcd6fd059a64566d3194eafe5372181a784e321db2c39a53232"
+}

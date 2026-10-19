@@ -1,0 +1,93 @@
+{
+  "experiment": "gaze-v0.7-static-treasure-transfer",
+  "authorization": "User requested composite-task training after all v0.7 primitive seeds completed.",
+  "downstream_task": "treasure",
+  "obstacle_motion": "static",
+  "success_condition": "target contact",
+  "conditions": [
+    "P",
+    "S",
+    "F"
+  ],
+  "condition_definitions": {
+    "P": "pretrained shared encoder frozen; new actor and critic heads trained",
+    "S": "random shared encoder; new actor and critic heads; all trained",
+    "F": "pretrained shared encoder unfrozen; new actor and critic heads; all trained"
+  },
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "source_checkpoint_updates": 2000,
+  "source_seed_policy": "P and F use the primitive model from the matching seed",
+  "model_width": 256,
+  "updates_per_condition_seed": 2000,
+  "rollout": 256,
+  "decisions_per_condition_seed": 512000,
+  "checkpoint_every": 200,
+  "checkpoint_publication": "atomic rename after complete serialization",
+  "epochs": 2,
+  "minibatch": 32,
+  "shared_lr": 3e-05,
+  "head_lr": 0.0001,
+  "training_parallelism": 3,
+  "evaluation_parallelism": 1,
+  "launch_order": [
+    "P_seed0",
+    "S_seed0",
+    "F_seed0",
+    "P_seed1",
+    "S_seed1",
+    "F_seed1",
+    "P_seed2",
+    "S_seed2",
+    "F_seed2"
+  ],
+  "validation_episodes_per_checkpoint": 32,
+  "validation_environment_seed": 9000,
+  "validation_policy": "deterministic tanh mean",
+  "validation_updates": [
+    200,
+    400,
+    600,
+    800,
+    1000,
+    1200,
+    1400,
+    1600,
+    1800,
+    2000
+  ],
+  "total_training_jobs": 9,
+  "total_validations": 90,
+  "matching": {
+    "network_seed": "20000 + seed",
+    "head_seed": "30000 + seed",
+    "environment_seed": "10000 + seed",
+    "action_sampling_seed": "40000 + seed",
+    "new_heads": "same initial actor and critic weights for P, S, F within each seed"
+  },
+  "layout_manifest": "manifests/gaze_v07_layouts.json",
+  "remote_output": "/home/s6323038/atomic-task-look-free-v07/runs/gaze_v07_2000/downstream",
+  "training_success_denominator": "sum successes + failures + interruptions over unique updates; exclude unfinished episodes and discarded surplus transitions",
+  "start_time_jst": "2026-10-17T23:36:28.334289+09:00",
+  "preflight_time_jst": "2026-10-17T23:36:29+09:00",
+  "sources": {
+    "0": {
+      "checkpoint": "runs/gaze_v07_2000/seed0/pretrain2_seed0/checkpoint_2000.pt",
+      "sha256": "ae19ab1ebe0cb30aa44527f036922679910d4b9e4cb7a6068763383e81891c68"
+    },
+    "1": {
+      "checkpoint": "runs/gaze_v07_2000/seed1/pretrain2_seed1/checkpoint_2000.pt",
+      "sha256": "85f5416a81ba12693134275cf9ed989e81d0a42595db45938b4049a72d095606"
+    },
+    "2": {
+      "checkpoint": "runs/gaze_v07_2000/seed2/pretrain2_seed2/checkpoint_2000.pt",
+      "sha256": "e4774db99b6614eb0556ad61ffbfb8bd039efb22c4c85073c2d8ca8c6e4a9f3e"
+    }
+  },
+  "unity_build_sha256": "206eb156d8075cc014e077d9c7a9971a76601fc3d0d92f2df82993329b6401b9",
+  "source_unity_build_sha256": "4ebd6f4fc842d3cb645ec0173fc5a1f5b8124410a8069b28f0ed6a3738b9db5c",
+  "layout_manifest_sha256": "e2a58f2ba9004bce5400a142d20cd9f9b2cc158598aaf8acce1d81d326582a05"
+}

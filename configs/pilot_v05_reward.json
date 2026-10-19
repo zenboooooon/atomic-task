@@ -1,0 +1,23 @@
+{
+  "pilot_revision": "pilot-v0.5-reward",
+  "base_layout_protocol": "pilot-v0.2",
+  "layout_manifest": "manifests/pilot_layouts.json",
+  "depth_calibration": "manifests/phase1/depth_selected_v02_normalization.json",
+  "depth_input_size": 392,
+  "shared_learning_rate": 3e-05,
+  "head_learning_rate": 0.0001,
+  "changes_from_pilot_v04": {
+    "look_view_progress_reference": "camera orientation at initial player position",
+    "look_movement_command_penalty_per_decision": 0.02,
+    "stop_band_distance_penalty_per_decision_per_m": 0.01,
+    "stop_view_misalignment_penalty_per_decision": 0.01,
+    "stop_camera_command_penalty_per_decision": 0.01
+  },
+  "note": "Pilot tuning from validation diagnostics; no test layouts used.",
+  "unity_build_sha256": {
+    "Task": "ae06f7cebed4cc55a874b398fbc72588d746a657889631dc7dbada34380a0d90",
+    "Pretrain": "63ffc883578f213f0c9e400073a1446ccc0acc34e50fca1cb8757a3a5b70b430",
+    "Composite": "95341337a4c173fd3ec003954a98b081351a085902eabab6998f58a914233e9a"
+  },
+  "layout_manifest_sha256": "71328c893dd80dcf04ca061bf91954f3991dd00bbad274e749279c57e542459b"
+}

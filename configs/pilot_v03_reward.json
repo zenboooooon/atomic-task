@@ -1,0 +1,25 @@
+{
+  "protocol_version": "pilot-v0.2",
+  "layout_manifest": "manifests/pilot_layouts.json",
+  "layout_manifest_file_sha256": "71328c893dd80dcf04ca061bf91954f3991dd00bbad274e749279c57e542459b",
+  "depth_input_size": 392,
+  "depth_calibration": "manifests/phase1/depth_selected_v02_normalization.json",
+  "depth_calibration_sha256": "7b0f48e928298208dd91d911604e152a0a066572d337c78c30f19f5ae1e31f6e",
+  "shared_learning_rate": 3e-05,
+  "head_learning_rate": 0.0001,
+  "gamma": 0.99,
+  "gae_lambda": 0.95,
+  "ppo_clip": 0.2,
+  "target_kl": 0.02,
+  "training_arenas": 16,
+  "physics_hz": 50,
+  "decision_hz": 10,
+  "note": "Reward tuning pilot; same pilot-v0.2 layouts and depth calibration. Main protocol remains unfrozen.",
+  "reward_weights": {
+    "view_progress": 1.0,
+    "stop_band_progress": 0.5,
+    "look_speed_penalty_per_physics_tick": 0.001,
+    "stop_speed_penalty_per_physics_tick_near_band": 0.001
+  },
+  "pilot_revision": "pilot-v0.3-reward"
+}

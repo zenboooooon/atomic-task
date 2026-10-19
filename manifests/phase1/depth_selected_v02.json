@@ -1,0 +1,26 @@
+{
+  "capture_count": 51,
+  "capture_set_sha256": "dfd55e8f6878acb5bac217424b3005320c1b678481b26fe5c84429c241a839d7",
+  "source_sweep": "runs/phase1/sweep_v02.json",
+  "device": "NVIDIA GeForce RTX 5090",
+  "reference_size": 518,
+  "calibration_size": 392,
+  "normalization": "manifests/phase1/depth_selected_v02_normalization.json",
+  "comparisons": {
+    "252": {
+      "median_seconds": 0.005042347125709057,
+      "pixel_correlation_median": 0.9716063662286222,
+      "edge_correlation_median": 0.8872962963373501
+    },
+    "392": {
+      "median_seconds": 0.008219107985496521,
+      "pixel_correlation_median": 0.9940988767990105,
+      "edge_correlation_median": 0.9571064529751365
+    },
+    "518": {
+      "median_seconds": 0.010081874206662178,
+      "pixel_correlation_median": 1.0,
+      "edge_correlation_median": 1.0
+    }
+  }
+}

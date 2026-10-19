@@ -1,0 +1,104 @@
+{
+  "experiment": "gaze-v0.9-shared-heads-static-treasure-transfer",
+  "authorization": "User clarified v0.9 is v0.8 with the same head for the same primitive task; correct and retry.",
+  "downstream_task": "treasure",
+  "obstacle_motion": "static",
+  "success_condition": "target contact",
+  "conditions": [
+    "P",
+    "S",
+    "F"
+  ],
+  "condition_definitions": {
+    "P": "pretrained shared encoder frozen; new actor and critic heads trained",
+    "S": "random shared encoder; new actor and critic heads; all trained",
+    "F": "pretrained shared encoder unfrozen; new actor and critic heads; all trained"
+  },
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "source_checkpoint_updates": 2000,
+  "source_seed_policy": "P and F use the primitive model from the matching seed",
+  "model_width": 256,
+  "updates_per_condition_seed": 2000,
+  "rollout": 256,
+  "decisions_per_condition_seed": 512000,
+  "checkpoint_every": 200,
+  "checkpoint_publication": "atomic rename after complete serialization",
+  "epochs": 2,
+  "minibatch": 32,
+  "shared_lr": 3e-05,
+  "head_lr": 0.0001,
+  "training_parallelism": 3,
+  "evaluation_parallelism": 1,
+  "launch_order": [
+    "P_seed0",
+    "S_seed0",
+    "F_seed0",
+    "P_seed1",
+    "S_seed1",
+    "F_seed1",
+    "P_seed2",
+    "S_seed2",
+    "F_seed2"
+  ],
+  "validation_episodes_per_checkpoint": 32,
+  "validation_environment_seed": 9000,
+  "validation_policy": "deterministic tanh mean",
+  "validation_updates": [
+    200,
+    400,
+    600,
+    800,
+    1000,
+    1200,
+    1400,
+    1600,
+    1800,
+    2000
+  ],
+  "total_training_jobs": 9,
+  "total_validations": 90,
+  "matching": {
+    "network_seed": "20000 + seed",
+    "head_seed": "30000 + seed",
+    "environment_seed": "10000 + seed",
+    "action_sampling_seed": "40000 + seed",
+    "new_heads": "same initial actor and critic weights for P, S, F within each seed"
+  },
+  "layout_manifest": "manifests/gaze_v08_layouts.json",
+  "remote_output": "/home/s6323038/atomic-task-shared-heads-v09/runs/gaze_v09_2000/downstream",
+  "training_success_denominator": "sum successes + failures + interruptions over unique updates; exclude unfinished episodes and discarded surplus transitions",
+  "status": "waiting_for_primitive_training_and_validation",
+  "source_checkpoint_pattern": "runs/gaze_v09_2000/seed{seed}/pretrain_shared_seed{seed}/checkpoint_2000.pt",
+  "source_agent_decisions": 1536000,
+  "primitive_validation_episodes_per_head": 36,
+  "source_head_keys": [
+    "look",
+    "approach"
+  ],
+  "start_gate": "All three primitive seeds finish 2000 updates and final deterministic validation for all six heads (36 episodes each), then primitive processes exit.",
+  "appearance": "Composite magenta target / yellow avatar; primitive colors orange/cyan, green/blue, brown/white.",
+  "primitive_head_transfer": "Discard the two primitive actor/critic pairs; transfer shared encoder only",
+  "source_unity_build_sha256": "77a8a4e6b0ed45281d5fbb2b78e915c068483ade17d3f6e642f13925ff0c21c1",
+  "unity_build_sha256": "f82a9a450c80a683110d2277191d630797e4d911fa0318b2d86c6c2103324e1d",
+  "layout_manifest_sha256": "f86afbe8fbb46b51a9ee9cb5a00586030e20d304ac53dbaa0edb085ad4d1ccb7",
+  "source_rollout_groups": [
+    "look_color0",
+    "look_color1",
+    "look_color2",
+    "approach_color0",
+    "approach_color1",
+    "approach_color2"
+  ],
+  "source_task_head_map": {
+    "look_color0": "look",
+    "look_color1": "look",
+    "look_color2": "look",
+    "approach_color0": "approach",
+    "approach_color1": "approach",
+    "approach_color2": "approach"
+  }
+}

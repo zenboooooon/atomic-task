@@ -1,0 +1,8 @@
+.tools
+.venv-gpu
+runs/
+unity/Library/
+unity/Temp/
+unity/Logs/
+unity/Build/
+__pycache__/

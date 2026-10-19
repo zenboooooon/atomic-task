@@ -1,0 +1,25 @@
+{
+  "experiment": "gaze_v04",
+  "approval_required_before_training": true,
+  "layout_manifest": "manifests/gaze_v04_layouts.json",
+  "pretraining": {
+    "tasks": ["look", "approach"],
+    "seeds": [0, 1, 2],
+    "updates_per_seed": 1333,
+    "rollout_decisions_per_task_per_update": 128,
+    "decisions_per_seed": 341248,
+    "validation_episodes_per_task": 36
+  },
+  "downstream": {
+    "task": "treasure",
+    "obstacle_mode_for_training": "static",
+    "obstacle_mode_reserved_for_later_evaluation": "moving",
+    "conditions": ["P", "S", "F"],
+    "matched_seeds": [0, 1, 2],
+    "updates_per_condition_seed": 2000,
+    "rollout_decisions_per_update": 256,
+    "decisions_per_condition_seed": 512000,
+    "checkpoint_every_updates": 200,
+    "deterministic_validation_episodes_per_checkpoint": 32
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "build_sha256": "8a95e70163450ab284df643bf2954419c49b0464a64b39a13f336d39fa05b943",
+  "worker_id": 0,
+  "seed": 0,
+  "env_step_calls": 120,
+  "agent_decisions": 119,
+  "agent_transitions": 119,
+  "terminal_events": 1,
+  "interrupted_events": 1,
+  "behaviors": [
+    "TPS_Smoke?team=0"
+  ],
+  "rgb_shape": [
+    224,
+    224,
+    3
+  ],
+  "first_rgb_min": 0.13333334028720856,
+  "first_rgb_max": 1.0,
+  "first_rgb_std": 0.1843988299369812,
+  "sample_path": "/home/s6323038/atomic-task/runs/smoke/sample.png",
+  "graphics_enabled": true,
+  "startup_seconds": 2.9110048934817314,
+  "rollout_seconds": 11.817935244180262,
+  "shutdown_seconds": 0.16407027281820774,
+  "decisions_per_second": 10.069440857581403
+}

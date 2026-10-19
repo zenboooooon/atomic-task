@@ -1,0 +1,78 @@
+{
+  "experiment": "gaze-jump-v0.10-single-color",
+  "baseline": "formal v0.9 PPO and shared ViT; jump-v0.1 preview mechanics",
+  "user_authorized": [
+    "train look/approach/jump primitives",
+    "composite: avoid obstacles, jump onto platform, touch treasure on top",
+    "one appearance pair",
+    "stop v0.9 and switch to this experiment"
+  ],
+  "implementation_choices": {
+    "palette": {
+      "target_and_platform": "orange",
+      "avatar": "cyan",
+      "same_in_primitive_and_composite": true
+    },
+    "tasks": [
+      "look",
+      "approach",
+      "jump"
+    ],
+    "actor_heads": 3,
+    "critic_heads": 3,
+    "action_size": 5,
+    "jump_input": "fifth continuous action >0.5, rising edge while grounded",
+    "jump_velocity": 6.0,
+    "gravity": 9.81,
+    "platform_size": [
+      3,
+      1,
+      2.4
+    ],
+    "composite_success": "jump followed by top landing, then contact treasure while on the platform",
+    "collision_with_obstacle": "failure as in baseline",
+    "training_updates": 2000,
+    "rollout_per_task": 256,
+    "decisions_per_update": 768,
+    "decisions_per_seed": 1536000,
+    "minibatch_per_task": 32,
+    "training_seeds": [
+      0,
+      1,
+      2
+    ],
+    "parallel_jobs": 3,
+    "primitive_agents_per_task": 6,
+    "final_primitive_validation_episodes_per_task": 36,
+    "conditions": [
+      "P",
+      "S",
+      "F"
+    ],
+    "downstream_updates": 2000,
+    "downstream_rollout": 256,
+    "downstream_checkpoint_every": 200,
+    "downstream_validation_episodes": 32,
+    "validation_seed": 9000,
+    "primitive_checkpoint_every": 100
+  },
+  "fixed": {
+    "model_width": 256,
+    "ppo_epochs": 2,
+    "shared_lr": 3e-05,
+    "head_lr": 0.0001,
+    "sensor": "one RGB camera, same existing inferred depth pipeline",
+    "look_success": "visible target <=7 degrees continuously 0.5 seconds, free movement",
+    "approach_success": "target contact",
+    "extra_losses": [],
+    "no_visual_augmentation": true,
+    "no_additional_sensors": true
+  },
+  "reward_choices": {
+    "look_approach": "baseline reward terms retained",
+    "jump": "terminal +1 for top landing, -1 on bounds/failure; baseline -0.001/decision and camera command cost, no new dense height reward",
+    "composite": "baseline treasure reward terms retained; success requires landed platform and treasure contact"
+  },
+  "initialization": "fresh model and task heads; no v0.9 checkpoint resume",
+  "change_note": "rollout rebalanced from six color groups x128 to three tasks x256 to retain total 768 judgments/update; minibatch total remains96"
+}

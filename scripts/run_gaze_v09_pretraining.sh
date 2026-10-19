@@ -1,0 +1,82 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+repo_dir="$(cd "$(dirname "$0")/.." && pwd)"
+cd "$repo_dir"
+base="$repo_dir/runs/gaze_v09_2000"
+export TZ=Asia/Tokyo
+export PYTHONPATH="$repo_dir/python${PYTHONPATH:+:$PYTHONPATH}"
+[[ -f "$base/APPROVED" ]] || { echo "Missing training authorization record" >&2; exit 2; }
+[[ ! -e "$base/pipeline.status" ]] || { echo "Refusing to overwrite an existing run" >&2; exit 2; }
+.venv-gpu/bin/python - <<'PY'
+import json
+from pathlib import Path
+from tps_transfer.build_identity import unity_build_sha256, layout_manifest_sha256
+base=Path('runs/gaze_v09_2000')
+p=json.loads((base/'run.plan.json').read_text())
+assert p['head_keys']==['look','approach'] and p['actor_heads']==p['critic_heads']==2
+assert p['training_seeds']==[0,1,2] and p['training_updates']==2000
+assert p['decisions_per_update']==768 and p['decisions_per_seed']==1536000
+assert p['extra_losses']==[] and not p['extra_sensors'] and not p['appearance_randomization']
+checks=json.loads(Path('runs/v09_smoke/verification.json').read_text())
+assert checks['all_checks_passed'] and checks['checkpoint_head_keys']==p['head_keys']
+assert checks['gpu_smoke_decisions']==1536 and checks['gpu_smoke_updates']==2
+for name in ('TpsPretrainColors','TpsTreasure'):
+ exe=Path('unity/Build')/(name+'.x86_64')
+ assert unity_build_sha256(exe)==checks['unity_build_sha256'][name]
+ assert layout_manifest_sha256(exe,Path('manifests/gaze_v08_layouts.json'))==checks['layout_manifest_sha256']
+PY
+tar --exclude='__pycache__' --exclude='._*' -czf "$base/source_snapshot.tar.gz" \
+  python scripts configs manifests unity/Assets/Scripts unity/Assets/Editor
+git diff --binary > "$base/source_changes.diff"
+printf '%s\n' "$$" > "$base/pipeline.pid"
+declare -A active=()
+active_count=0
+next=0
+completed=0
+cleanup() {
+  for pid in "${!active[@]}"; do kill -TERM -- "-$pid" 2>/dev/null || true; done
+}
+interrupted() {
+  printf '%s STOPPED interrupted\n' "$(date -Is)" > "$base/pipeline.status"
+  cleanup
+  exit 143
+}
+trap cleanup EXIT
+trap interrupted TERM INT
+trap 'printf "%s FAILED supervisor\n" "$(date -Is)" > "$base/pipeline.status"' ERR
+while (( next < 3 || active_count > 0 )); do
+  parallel=$(cat "$base/parallelism")
+  [[ "$parallel" =~ ^[123]$ ]] || { echo "parallelism must be 1, 2 or 3" >&2; exit 2; }
+  while (( next < 3 && active_count < parallel )); do
+    seed="$next"
+    mkdir -p "$base/seed${seed}"
+    setsid bash scripts/run_gaze_v09_pretrain_seed.sh "$base" "$seed" \
+      > "$base/seed${seed}/pipeline.log" 2>&1 &
+    pid=$!
+    active[$pid]="$seed"
+    active_count=$((active_count + 1))
+    printf '%s\n' "$pid" > "$base/seed${seed}/pipeline.pid"
+    printf '%s LAUNCHED seed=%s pid=%s\n' "$(date -Is)" "$seed" "$pid"
+    next=$((next + 1))
+  done
+  for pid in "${!active[@]}"; do
+    if ! kill -0 "$pid" 2>/dev/null; then
+      seed="${active[$pid]}"
+      if wait "$pid"; then
+        unset "active[$pid]"
+        active_count=$((active_count - 1))
+        completed=$((completed + 1))
+        printf '%s COMPLETED seed=%s\n' "$(date -Is)" "$seed"
+      else
+        printf '%s FAILED seed%s\n' "$(date -Is)" "$seed" > "$base/pipeline.status"
+        exit 1
+      fi
+    fi
+  done
+  if (( next < 3 || active_count > 0 )); then
+    printf '%s RUNNING completed=%s/3 active=%s parallel_limit=%s\n' \
+      "$(date -Is)" "$completed" "$active_count" "$parallel" > "$base/pipeline.status"
+    sleep 5
+  fi
+done
+printf '%s COMPLETE primitive_training_and_validation\n' "$(date -Is)" > "$base/pipeline.status"

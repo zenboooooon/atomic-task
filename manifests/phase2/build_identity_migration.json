@@ -1,0 +1,9 @@
+{
+  "original_checkpoint": "runs/phase2/pretrain_1024/checkpoint_0002.pt",
+  "corrected_checkpoint": "runs/phase2/pretrain_1024/checkpoint_0002_stable.pt",
+  "old_build_hash_included_runtime_timer": "c406f59e03126b24036a3b713829e142a1a9118995e1887f34d77226464e3271",
+  "stable_build_hash": "e4519bbcb807d5b2b29e2f7229ff4f4cc7c4413cbead84eb76a18dd082b8e573",
+  "reason": "Unity ML-Agents writes a timer JSON inside the Player Data directory at shutdown. The new identity hashes only immutable build files.",
+  "original_checkpoint_sha256": "9fe2e4c508fa8f9734647ef7529761252261fa185a4b737f52a208464c20f15b",
+  "corrected_checkpoint_sha256": "74077f8b4cfa9191acd7791ef21f70edba43abc44f1512c9987c917dc8507e76"
+}

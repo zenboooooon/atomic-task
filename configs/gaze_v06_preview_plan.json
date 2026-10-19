@@ -1,0 +1,89 @@
+{
+  "version": "gaze-v0.6-edge-appearance",
+  "status": "preview_verified",
+  "source_experiment": "gaze-v0.5-look1p5",
+  "look": {
+    "initial_target": "visible at left or right edge",
+    "target_center_viewport_x": [
+      [
+        0.11,
+        0.15
+      ],
+      [
+        0.85,
+        0.89
+      ]
+    ],
+    "runtime_camera_projection_correction": true,
+    "center_hold_seconds": 1.5,
+    "center_angle_tolerance_degrees": 7,
+    "max_player_displacement_m": 0.3
+  },
+  "appearance": {
+    "atomic": {
+      "target": "orange ellipsoid",
+      "avatar": "cyan cylinder"
+    },
+    "treasure": {
+      "target": "magenta diamond",
+      "avatar": "yellow box"
+    }
+  },
+  "arena_dimensions_m": [
+    18,
+    18
+  ],
+  "composite": {
+    "collection": "contact",
+    "obstacle_modes": [
+      "static",
+      "moving"
+    ]
+  },
+  "preview_controller": {
+    "look": "image centroid camera control with zero movement",
+    "treasure": "image centroid camera control and A* obstacle route to contact",
+    "learned_policy": false
+  },
+  "videos": [
+    "look-left",
+    "look-right",
+    "treasure-static",
+    "treasure-moving"
+  ],
+  "remote_repository": "/home/s6323038/atomic-task-edge-look-v06",
+  "output": "runs/gaze_v06/preview",
+  "training_started": false,
+  "rgb_aspect_ratio": 1.0,
+  "reset_render_pose": "current physics pose",
+  "verification": {
+    "look": [
+      {
+        "split": "train",
+        "unique_layouts_checked": 128,
+        "rendered_start_frames": 138,
+        "min_center_x": 0.1055166912125675,
+        "max_center_x": 0.8877481065552363,
+        "all_targets_visible_at_edges": true
+      },
+      {
+        "split": "validation",
+        "unique_layouts_checked": 32,
+        "rendered_start_frames": 42,
+        "min_center_x": 0.10702501109139308,
+        "max_center_x": 0.8807196062782655,
+        "all_targets_visible_at_edges": true
+      }
+    ],
+    "treasure": {
+      "treasure_agents": 16,
+      "yellow_avatar_visible_for_all": true
+    }
+  },
+  "scripted_preview_successes": {
+    "look-left": true,
+    "look-right": true,
+    "treasure-static": true,
+    "treasure-moving": true
+  }
+}

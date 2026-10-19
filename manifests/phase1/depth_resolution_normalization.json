@@ -1,0 +1,8 @@
+{
+  "low": 0.0,
+  "high": 5.8187713623046875,
+  "lower_quantile": 0.01,
+  "upper_quantile": 0.99,
+  "pixel_count": 2558976,
+  "training_digest": "e0e08830ea9445e06029c85f77104dc958a724a2c54660c8dd8f2b2b66807bca"
+}

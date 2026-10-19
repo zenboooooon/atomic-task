@@ -1,0 +1,63 @@
+{
+  "experiment": "gaze-v0.7-free-look0p5",
+  "run": "gaze_v07_2000",
+  "authorization": "User requested free movement in look and 0.5 seconds continuous centering, then explicitly selected fresh initialization for 2000 updates.",
+  "tasks": [
+    "look",
+    "approach"
+  ],
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "initialization": "fresh random initialization for each seed",
+  "model_width": 256,
+  "updates_per_seed": 2000,
+  "decisions_per_task_per_update": 128,
+  "decisions_per_seed": 512000,
+  "decisions_per_task_per_seed": 256000,
+  "checkpoint_every_updates": 100,
+  "ppo_epochs": 2,
+  "shared_lr": 3e-05,
+  "head_lr": 0.0001,
+  "initial_parallel_jobs": 3,
+  "maximum_parallel_jobs": 3,
+  "parallelism_policy": "Three seeds concurrently.",
+  "look_success": "visible target center within 7 degrees continuously for 0.5 seconds (25 physics ticks); unrestricted movement within arena",
+  "approach_success": "target contact",
+  "validation": {
+    "policy": "deterministic tanh mean",
+    "environment_seed": 9000,
+    "episodes_per_task_per_seed": 36,
+    "checkpoint_update": 2000
+  },
+  "scope": "primitive training and final primitive validation",
+  "layout_manifest": "manifests/gaze_v07_layouts.json",
+  "remote_output": "/home/s6323038/atomic-task-look-free-v07/runs/gaze_v07_2000",
+  "training_metric_denominator": "successes + failures + interruptions for episodes used by PPO; exclude unfinished episodes and discarded surplus transitions",
+  "active_parallel_jobs": 3,
+  "look_movement_penalties": false,
+  "look_view_shaping": "actual camera direction including translation",
+  "parent_experiment": "gaze-v0.6-edge-appearance",
+  "changes": [
+    "Remove look displacement termination and success constraint",
+    "Remove look movement command and speed penalties",
+    "Shorten consecutive look hold from 75 to 25 physics ticks",
+    "Use actual camera for look view shaping"
+  ],
+  "unchanged": [
+    "approach contact success",
+    "edge-visible look starts",
+    "arena geometry and appearances",
+    "ViT width 256",
+    "training schedule and PPO hyperparameters"
+  ],
+  "start_time_jst": "2026-10-17T18:03:02.745434+09:00",
+  "preflight": {
+    "look_layouts_checked": 160,
+    "moving_look_displacement_m": 2.459668,
+    "moving_look_hold_seconds": 0.5,
+    "all_scripted_previews_passed": true
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "experiment": "gaze_v05_look1p5",
+  "status": "prepared_pending_preview_review",
+  "change_from_gaze_v04_4000": "look central gaze hold 3.0 s to 1.5 s (150 to 75 physics ticks at 50 Hz); all layouts and other task logic preserved",
+  "layout_manifest": "manifests/gaze_v05_look1p5_layouts.json",
+  "source_layout_manifest": "manifests/gaze_v04_layouts.json",
+  "primitive_tasks": [
+    "look",
+    "approach"
+  ],
+  "pretraining": {
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "updates_per_seed": 4000,
+    "rollout_per_task_per_update": 128,
+    "decisions_per_seed": 1024000,
+    "checkpoint_every_updates": 100,
+    "fresh_initialization": true,
+    "concurrent_seeds": 2,
+    "validation_episodes_per_task": 36
+  },
+  "downstream": {
+    "task": "treasure",
+    "obstacles": "static",
+    "conditions": [
+      "P",
+      "S",
+      "F"
+    ],
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "updates_per_seed_condition": 2000,
+    "decisions_per_update": 256,
+    "checkpoint_every_updates": 200,
+    "deterministic_validation_episodes_per_checkpoint": 32
+  },
+  "training_gate": "runs/gaze_v05_look1p5/APPROVED must be created only after user reviews preview videos",
+  "model": {
+    "vit_embedding_width": 256,
+    "spatial_layers": 4,
+    "temporal_layers": 2,
+    "attention_heads": 4,
+    "initialization": "fresh"
+  }
+}

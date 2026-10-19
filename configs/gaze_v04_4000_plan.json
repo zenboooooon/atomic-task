@@ -1,0 +1,28 @@
+{
+  "experiment": "gaze_v04_4000",
+  "layout_manifest": "manifests/gaze_v04_layouts.json",
+  "unity_players_unchanged": true,
+  "pretraining": {
+    "tasks": ["look", "approach"],
+    "seeds": [0, 1, 2],
+    "updates_per_seed": 4000,
+    "rollout_decisions_per_task_per_update": 128,
+    "decisions_per_seed": 1024000,
+    "seed0_resume_checkpoint": "runs/gaze_v04/seed0/pretrain2_seed0/checkpoint_1333.pt",
+    "seed0_resumed_from_update": 1333,
+    "concurrent_seeds": 2,
+    "agents_per_seed": 12,
+    "validation_episodes_per_task": 36
+  },
+  "downstream": {
+    "task": "treasure",
+    "obstacle_mode_for_training": "static",
+    "conditions": ["P", "S", "F"],
+    "matched_seeds": [0, 1, 2],
+    "updates_per_condition_seed": 2000,
+    "rollout_decisions_per_update": 256,
+    "decisions_per_condition_seed": 512000,
+    "checkpoint_every_updates": 200,
+    "deterministic_validation_episodes_per_checkpoint": 32
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "pilot_revision": "pilot-v0.4-reward",
+  "base_layout_protocol": "pilot-v0.2",
+  "layout_manifest": "manifests/pilot_layouts.json",
+  "depth_calibration": "manifests/phase1/depth_selected_v02_normalization.json",
+  "depth_input_size": 392,
+  "shared_learning_rate": 3e-05,
+  "head_learning_rate": 0.0001,
+  "changes_from_pilot_v03": {
+    "view_progress_coefficient": 5.0,
+    "look_movement_penalty_per_physics_tick_per_mps": 0.005,
+    "look_displacement_failure_m": 0.3,
+    "stop_band_progress_coefficient": 1.0,
+    "stop_distance_penalty_per_decision_per_m": 0.005,
+    "stop_speed_penalty_per_physics_tick_per_mps_near_band": 0.003,
+    "one_time_look_alignment_bonus": 0.2,
+    "one_time_stop_band_entry_bonus": 0.2
+  },
+  "note": "Pilot tuning only; no test layouts or confirmatory results used. All RL conditions require a rebuild and identical version.",
+  "unity_build_sha256": {
+    "Task": "37c3a97686485c541cf3c89bb40bb21accc9cba6ab231ea0045cd0ba94d9f337",
+    "Pretrain": "ffd2027632298ff23457951cad2ddfd50490c220399658f4721ed752103a48a3",
+    "Composite": "e7946ecb40c11b1c1ff022fc9c215dbf209b4d7b9323c10761383593288429f5"
+  },
+  "layout_manifest_sha256": "71328c893dd80dcf04ca061bf91954f3991dd00bbad274e749279c57e542459b"
+}

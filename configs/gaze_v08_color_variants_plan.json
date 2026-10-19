@@ -1,0 +1,99 @@
+{
+  "experiment": "gaze-v0.8-color-variants",
+  "status": "running",
+  "parent_experiment": "gaze-v0.7-free-look0p5",
+  "task_set": "gaze6",
+  "model_width": 256,
+  "shared_encoders": 1,
+  "head_keys": [
+    "look_color0",
+    "look_color1",
+    "look_color2",
+    "approach_color0",
+    "approach_color1",
+    "approach_color2"
+  ],
+  "actor_heads": 6,
+  "critic_heads": 6,
+  "initialization": "fresh independent actor and critic for each task/color; fresh shared encoder by default",
+  "arenas_per_head": 6,
+  "total_arenas": 36,
+  "layout_matching": "All three variants of the same task use identical base layouts, offsets 0..5 and stride 6.",
+  "default_rollout_per_head": 128,
+  "default_decisions_per_update": 768,
+  "training_updates": 2000,
+  "training_seeds": [
+    0,
+    1,
+    2
+  ],
+  "budget_note": "Six heads x 128 decisions per update x 2000 updates = 1536000 decisions per seed. Three fresh seeds (0,1,2), maximum three parallel.",
+  "validation": {
+    "policy": "deterministic tanh mean",
+    "environment_seed": 9000,
+    "episodes_per_agent": 6,
+    "episodes_per_head": 36,
+    "episodes_per_base_task": 108
+  },
+  "appearance_protocol": "manifests/primitive_color_variants.json",
+  "layout_manifest": "manifests/gaze_v08_layouts.json",
+  "remote_repository": "/home/s6323038/atomic-task-color-variants-v08",
+  "training_metric_denominator": "successes + failures + interruptions for episodes used in PPO, deduplicated by update; exclude unfinished episodes and discarded surplus",
+  "appearance_revision": "color2_brown_target_white_avatar",
+  "previous_appearance_verification": {
+    "note": "Earlier red/white and black/white checks refer to their archived appearances."
+  },
+  "verification": {
+    "brown_gpu_smoke_updates": 2,
+    "brown_gpu_smoke_agent_decisions": 1536,
+    "all_heads_updated": true,
+    "fresh_unique_actor_heads": 6,
+    "fresh_unique_critic_heads": 6,
+    "shared_encoder_updated": true,
+    "max_cuda_memory_bytes": 4318795776,
+    "unity_build_sha256": "77a8a4e6b0ed45281d5fbb2b78e915c068483ade17d3f6e642f13925ff0c21c1",
+    "layout_manifest_sha256": "f86afbe8fbb46b51a9ee9cb5a00586030e20d304ac53dbaa0edb085ad4d1ccb7",
+    "palette": {
+      "id": "color2",
+      "label": "brown / white",
+      "target_rgb": [
+        0.45,
+        0.22,
+        0.08
+      ],
+      "avatar_rgb": [
+        0.94,
+        0.94,
+        0.94
+      ]
+    },
+    "rendered_agents_checked": 36,
+    "scripted_look_successes_per_color": 6,
+    "look_layout_matching": true,
+    "color_tests_passed": 2
+  },
+  "run": "gaze_v08_2000",
+  "authorization": "ユーザー: やっぱりプレイヤー白は目標茶色にしよう。動作確認まで取れたら学習開始しちゃっていい",
+  "updates_per_seed": 2000,
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "decisions_per_head_per_update": 128,
+  "decisions_per_update": 768,
+  "decisions_per_seed": 1536000,
+  "decisions_per_head_per_seed": 256000,
+  "decisions_per_base_task_per_seed": 768000,
+  "checkpoint_every_updates": 100,
+  "ppo_epochs": 2,
+  "minibatch_per_head": 16,
+  "shared_lr": 3e-05,
+  "head_lr": 0.0001,
+  "maximum_parallel_jobs": 3,
+  "initial_parallel_jobs": 3,
+  "remote_output": "/home/s6323038/atomic-task-color-variants-v08/runs/gaze_v08_2000",
+  "scope": "primitive training and final primitive validation only",
+  "start_time_jst": "2026-10-18T18:34:21+09:00",
+  "automation_id": "v0-8-2000"
+}

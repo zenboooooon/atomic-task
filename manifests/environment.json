@@ -1,0 +1,38 @@
+{
+  "recorded_utc": "2026-10-13T11:11:20.954959+00:00",
+  "python": "3.10.12",
+  "packages": {
+    "mlagents-envs": "1.1.0",
+    "numpy": "1.23.5",
+    "torch": "2.2.1+cpu",
+    "torchvision": "0.17.1+cpu",
+    "opencv-python-headless": "4.8.1.78",
+    "pytest": "8.4.2",
+    "tps-transfer": "0.1.0"
+  },
+  "unity_editor": {
+    "ok": true,
+    "output": "6000.0.84f1"
+  },
+  "unity_cli": {
+    "ok": true,
+    "output": "1.0.0-beta.13"
+  },
+  "unity_package": "4.0.0",
+  "nvidia_smi": {
+    "ok": false,
+    "error": "Failed to initialize NVML: Driver/library version mismatch\nNVML library version: 595.99"
+  },
+  "loaded_nvidia_module": {
+    "ok": true,
+    "output": "NVRM version: NVIDIA UNIX Open Kernel Module for x86_64  595.84  Release Build  (dvs-builder@U22-I3-AM25-26-2)  Wed Jun 10 21:06:37 UTC 2026\nGCC version:  gcc version 13.3.0 (Ubuntu 13.3.0-6ubuntu2~24.04.1)"
+  },
+  "installed_nvidia_module": {
+    "ok": true,
+    "output": "595.99.02"
+  },
+  "git_commit": {
+    "ok": true,
+    "output": "f4d53d36abc872f06a9fbe871815577e7cc32c58"
+  }
+}
