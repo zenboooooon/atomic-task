@@ -14,12 +14,17 @@ from tps_transfer.build_identity import unity_build_sha256, layout_manifest_sha2
 base=Path('runs/gaze_v10_2000')
 p=json.loads((base/'run.plan.json').read_text())
 assert p['head_keys']==['look','approach','jump'] and p['actor_heads']==p['critic_heads']==3
+assert p['action_size']==5 and p['rollout_per_task']==256 and p['minibatch_per_task']==32
 assert p['training_seeds']==[0,1,2] and p['training_updates']==2000
 assert p['decisions_per_update']==768 and p['decisions_per_seed']==1536000
 assert p['extra_losses']==[] and not p['extra_sensors'] and not p['appearance_randomization']
 checks=json.loads(Path('runs/v10_smoke/verification.json').read_text())
 assert checks['all_checks_passed'] and checks['checkpoint_head_keys']==p['head_keys']
 assert checks['gpu_smoke_decisions']==1536 and checks['gpu_smoke_updates']==2
+assert checks['action_size']==5 and checks['extra_losses']==[]
+observations=json.loads(Path('runs/v10_smoke/observation_checks.json').read_text())
+assert set(observations)=={'look','approach','jump','treasure'}
+assert all(v['continuous_actions']==5 and v['camera_sensors']==1 for v in observations.values())
 for name in ('TpsPretrainJump','TpsTreasure'):
  exe=Path('unity/Build')/(name+'.x86_64')
  assert unity_build_sha256(exe)==checks['unity_build_sha256'][name]

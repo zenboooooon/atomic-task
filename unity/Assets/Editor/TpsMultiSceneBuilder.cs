@@ -50,6 +50,13 @@ namespace TpsTransfer.Editor
             BuildTreasureLinuxPlayer();
         }
 
+        public static void BuildV10TreasureLinuxPlayer()
+        {
+            jumpContact = AssetDatabase.LoadAssetAtPath<PhysicsMaterial>("Assets/Materials/V10JumpContact.physicMaterial");
+            if (jumpContact == null) throw new InvalidDataException("Missing v0.10 contact material");
+            BuildTreasureLinuxPlayer();
+        }
+
         [MenuItem("TPS/Build Linux color variant players")]
         public static void BuildColorVariantLinuxPlayers()
         {
@@ -183,7 +190,7 @@ namespace TpsTransfer.Editor
             target.name = task == "treasure" ? "Treasure" : "VisibleTarget";
             target.transform.SetParent(root.transform, false);
             target.transform.localPosition = new Vector3(0f, 1.6f, 5f);
-            target.transform.localScale = task == "treasure" ? new Vector3(0.7f, 0.7f, 0.7f) : new Vector3(1f, 2f, 0.4f);
+            target.transform.localScale = new Vector3(1f, 2f, 0.4f);
             bool downstreamAppearance = task == "treasure" || task == "composite";
             target.GetComponent<MeshFilter>().sharedMesh = downstreamAppearance
                 ? DiamondMesh() : PrimitiveMesh(PrimitiveType.Sphere);

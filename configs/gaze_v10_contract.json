@@ -66,7 +66,8 @@
     "approach_success": "target contact",
     "extra_losses": [],
     "no_visual_augmentation": true,
-    "no_additional_sensors": true
+    "no_additional_sensors": true,
+    "target_contact_volume": "v0.9 1 x 2 x 0.4 m; elevated on the platform"
   },
   "reward_choices": {
     "look_approach": "baseline reward terms retained",

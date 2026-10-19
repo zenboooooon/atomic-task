@@ -74,6 +74,7 @@ def preflight() -> None:
         assert state["head_sharing"] == "none"
         assert state["task_head_map"] == plan["source_task_head_map"]
         assert state["model_config"]["width"] == 256
+        assert state["model_config"]["action_size"] == 5
         assert tuple(state["pretraining_tasks"]) == COLOR_TASKS
         assert state["task_variants"] == task_metadata(COLOR_TASKS)
         assert state["layout_manifest_sha256"] == layout_sha
