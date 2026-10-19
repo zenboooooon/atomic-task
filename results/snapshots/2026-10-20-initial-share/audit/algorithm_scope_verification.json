@@ -1,0 +1,7 @@
+{
+  "training_loop_same_except_environment_identity_metadata": true,
+  "deterministic_evaluation_loop_identical": true,
+  "qualitative_sampling_loop_identical": true,
+  "fixed_files_unchanged": 15,
+  "PPO_model_observations_physics_and_primitive_run_unchanged": true
+}

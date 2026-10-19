@@ -1,0 +1,476 @@
+{
+  "captured_start_jst": "2026-10-20T01:23:16+09:00",
+  "experiment": "gaze-jump-v0.10-wide24-start-back4",
+  "primitive_experiment": "gaze-jump-v0.10-single-color",
+  "source_root": "/home/s6323038/atomic-task-jump-v10",
+  "live_code_commit": "877e6f41e6968071fa30a67a65300647b723dc96",
+  "live_code_dirty": true,
+  "snapshot_consistency": "Files read sequentially while downstream training continues; see per-file times.",
+  "training_denominator": "successes + failures + interruptions, over unique updates; unfinished episodes and discarded surplus transitions excluded",
+  "primitive": {
+    "0": {
+      "update": 2000,
+      "unique_updates": 2000,
+      "decisions": 1536000,
+      "status": "2026-10-20T01:12:33+09:00 COMPLETE",
+      "data_source": "report.json",
+      "latest_checkpoint": "checkpoint_2000.pt",
+      "totals": {
+        "look": {
+          "successes": 4273,
+          "failures": 2833,
+          "interruptions": 642,
+          "ended": 7748,
+          "success_rate": 0.5514971605575633
+        },
+        "approach": {
+          "successes": 6306,
+          "failures": 733,
+          "interruptions": 776,
+          "ended": 7815,
+          "success_rate": 0.8069097888675624
+        },
+        "jump": {
+          "successes": 18036,
+          "failures": 168,
+          "interruptions": 286,
+          "ended": 18490,
+          "success_rate": 0.9754461871281774
+        }
+      },
+      "validation": {
+        "look": {
+          "episodes": 36,
+          "successes": 32,
+          "success_rate": 0.8888888888888888,
+          "decision_count": 1439,
+          "mean_action": [
+            -0.025846990539028638,
+            -0.09498394176480765,
+            -0.006300031643513269,
+            0.008817693033529726,
+            -0.005932839139164189
+          ],
+          "mean_abs_action": [
+            0.05456999689648012,
+            0.11808188652808703,
+            0.20750853999855534,
+            0.13778049573681692,
+            0.08178150237516806
+          ]
+        },
+        "approach": {
+          "episodes": 36,
+          "successes": 25,
+          "success_rate": 0.6944444444444444,
+          "decision_count": 2043,
+          "mean_action": [
+            -0.11843360319566774,
+            0.6619980878037561,
+            -0.19871089480585627,
+            0.1839663970926186,
+            -0.5568925682391481
+          ],
+          "mean_abs_action": [
+            0.47373540631444816,
+            0.6619980878037561,
+            0.2589522058671471,
+            0.24195611207288173,
+            0.5568925682391481
+          ]
+        },
+        "jump": {
+          "episodes": 36,
+          "successes": 36,
+          "success_rate": 1.0,
+          "decision_count": 469,
+          "mean_action": [
+            0.5852472047402915,
+            0.8928595723044167,
+            -0.4684639085076257,
+            -0.03453182118228956,
+            0.4973713214050478
+          ],
+          "mean_abs_action": [
+            0.5871474270119088,
+            0.8928595723044167,
+            0.4684639085076257,
+            0.1529269052878159,
+            0.5197706798405282
+          ]
+        }
+      },
+      "final_checkpoint_sha256": "75420d6dfc990df5a9ac2bcb777ee0603313927f6a27134da54a4afcd816f464"
+    },
+    "1": {
+      "update": 2000,
+      "unique_updates": 2000,
+      "decisions": 1536000,
+      "status": "2026-10-20T01:12:27+09:00 COMPLETE",
+      "data_source": "report.json",
+      "latest_checkpoint": "checkpoint_2000.pt",
+      "totals": {
+        "look": {
+          "successes": 5208,
+          "failures": 2710,
+          "interruptions": 546,
+          "ended": 8464,
+          "success_rate": 0.6153119092627599
+        },
+        "approach": {
+          "successes": 5554,
+          "failures": 896,
+          "interruptions": 759,
+          "ended": 7209,
+          "success_rate": 0.7704258565681786
+        },
+        "jump": {
+          "successes": 7015,
+          "failures": 600,
+          "interruptions": 949,
+          "ended": 8564,
+          "success_rate": 0.819126576366184
+        }
+      },
+      "validation": {
+        "look": {
+          "episodes": 36,
+          "successes": 36,
+          "success_rate": 1.0,
+          "decision_count": 577,
+          "mean_action": [
+            0.3021768527887269,
+            -0.026982930198955823,
+            -0.0802681200300905,
+            0.01522421402388827,
+            0.1168412693887259
+          ],
+          "mean_abs_action": [
+            0.3122232723840919,
+            0.10487851952594032,
+            0.3726986943536512,
+            0.2586862225826661,
+            0.12239835072722184
+          ]
+        },
+        "approach": {
+          "episodes": 36,
+          "successes": 36,
+          "success_rate": 1.0,
+          "decision_count": 1138,
+          "mean_action": [
+            0.36611199208088413,
+            0.7955112575834882,
+            -0.321683365535079,
+            0.03760313118215358,
+            -0.4959897264987165
+          ],
+          "mean_abs_action": [
+            0.41990040954667257,
+            0.8462088833291326,
+            0.3279766152395072,
+            0.1806082720301302,
+            0.5587836317006034
+          ]
+        },
+        "jump": {
+          "episodes": 36,
+          "successes": 6,
+          "success_rate": 0.16666666666666666,
+          "decision_count": 6096,
+          "mean_action": [
+            -0.5050770732625498,
+            0.535284129301394,
+            0.671033301434707,
+            -0.15922164377851367,
+            0.2543629707558187
+          ],
+          "mean_abs_action": [
+            0.5050770732625498,
+            0.535284129301394,
+            0.6729616361041981,
+            0.15961343657975194,
+            0.2662724994421354
+          ]
+        }
+      },
+      "final_checkpoint_sha256": "b8da2c80b1847e14e9530293145a0c6f7aabbb82cbf66d7c4ab77fb07a2aad0a"
+    },
+    "2": {
+      "update": 2000,
+      "unique_updates": 2000,
+      "decisions": 1536000,
+      "status": "2026-10-20T01:15:30+09:00 COMPLETE",
+      "data_source": "report.json",
+      "latest_checkpoint": "checkpoint_2000.pt",
+      "totals": {
+        "look": {
+          "successes": 1457,
+          "failures": 4188,
+          "interruptions": 617,
+          "ended": 6262,
+          "success_rate": 0.23267326732673269
+        },
+        "approach": {
+          "successes": 3819,
+          "failures": 887,
+          "interruptions": 1219,
+          "ended": 5925,
+          "success_rate": 0.6445569620253164
+        },
+        "jump": {
+          "successes": 6182,
+          "failures": 546,
+          "interruptions": 1035,
+          "ended": 7763,
+          "success_rate": 0.7963416205075358
+        }
+      },
+      "validation": {
+        "look": {
+          "episodes": 36,
+          "successes": 18,
+          "success_rate": 0.5,
+          "decision_count": 3465,
+          "mean_action": [
+            0.05291734399568978,
+            -0.2548747382939808,
+            0.010309853609721881,
+            -0.006685135441788232,
+            -0.08370614377869103
+          ],
+          "mean_abs_action": [
+            0.10635739296811134,
+            0.2548747382939808,
+            0.055496431356695755,
+            0.08797171666676784,
+            0.13583889924356657
+          ]
+        },
+        "approach": {
+          "episodes": 36,
+          "successes": 33,
+          "success_rate": 0.9166666666666666,
+          "decision_count": 1339,
+          "mean_action": [
+            0.20353170488686304,
+            0.7102490071405686,
+            -0.1252271821520683,
+            0.2517654496471831,
+            -0.41101623503282186
+          ],
+          "mean_abs_action": [
+            0.39269376092924596,
+            0.7187032890842554,
+            0.2608929631576572,
+            0.3243192261295488,
+            0.5086424843721115
+          ]
+        },
+        "jump": {
+          "episodes": 36,
+          "successes": 36,
+          "success_rate": 1.0,
+          "decision_count": 566,
+          "mean_action": [
+            0.21053229730375533,
+            0.789622829259495,
+            -0.3864649624796996,
+            -0.30400625757162225,
+            0.24302014060213162
+          ],
+          "mean_abs_action": [
+            0.3056389914090044,
+            0.789622829259495,
+            0.39157415270273055,
+            0.30400625757162225,
+            0.4756808805183998
+          ]
+        }
+      },
+      "final_checkpoint_sha256": "a1ef6ae53bddd48a13990f6a148d6991d7f6ac1f36314d25d685fc153710429b"
+    }
+  },
+  "downstream": {
+    "jobs": {
+      "P_seed0": {
+        "update": 69,
+        "unique_updates": 69,
+        "decisions": 17664,
+        "status": "2026-10-20T01:15:38+09:00 RUNNING training",
+        "data_source": "complete JSON lines from train.log",
+        "totals": {
+          "successes": 5,
+          "failures": 66,
+          "interruptions": 21,
+          "ended": 92,
+          "success_rate": 0.05434782608695652
+        },
+        "latest_checkpoint": "checkpoint_0000.pt",
+        "validations": {}
+      },
+      "S_seed0": {
+        "update": 65,
+        "unique_updates": 65,
+        "decisions": 16640,
+        "status": "2026-10-20T01:15:38+09:00 RUNNING training",
+        "data_source": "complete JSON lines from train.log",
+        "totals": {
+          "successes": 2,
+          "failures": 40,
+          "interruptions": 25,
+          "ended": 67,
+          "success_rate": 0.029850746268656716
+        },
+        "latest_checkpoint": "checkpoint_0000.pt",
+        "validations": {}
+      },
+      "F_seed0": {
+        "update": 65,
+        "unique_updates": 65,
+        "decisions": 16640,
+        "status": "2026-10-20T01:15:38+09:00 RUNNING training",
+        "data_source": "complete JSON lines from train.log",
+        "totals": {
+          "successes": 6,
+          "failures": 50,
+          "interruptions": 27,
+          "ended": 83,
+          "success_rate": 0.07228915662650602
+        },
+        "latest_checkpoint": "checkpoint_0000.pt",
+        "validations": {}
+      },
+      "P_seed1": {
+        "update": 0,
+        "unique_updates": 0,
+        "decisions": 0,
+        "status": "WAITING",
+        "data_source": "complete JSON lines from train.log",
+        "totals": {
+          "successes": 0,
+          "failures": 0,
+          "interruptions": 0,
+          "ended": 0,
+          "success_rate": null
+        },
+        "latest_checkpoint": null,
+        "validations": {}
+      },
+      "S_seed1": {
+        "update": 0,
+        "unique_updates": 0,
+        "decisions": 0,
+        "status": "WAITING",
+        "data_source": "complete JSON lines from train.log",
+        "totals": {
+          "successes": 0,
+          "failures": 0,
+          "interruptions": 0,
+          "ended": 0,
+          "success_rate": null
+        },
+        "latest_checkpoint": null,
+        "validations": {}
+      },
+      "F_seed1": {
+        "update": 0,
+        "unique_updates": 0,
+        "decisions": 0,
+        "status": "WAITING",
+        "data_source": "complete JSON lines from train.log",
+        "totals": {
+          "successes": 0,
+          "failures": 0,
+          "interruptions": 0,
+          "ended": 0,
+          "success_rate": null
+        },
+        "latest_checkpoint": null,
+        "validations": {}
+      },
+      "P_seed2": {
+        "update": 0,
+        "unique_updates": 0,
+        "decisions": 0,
+        "status": "WAITING",
+        "data_source": "complete JSON lines from train.log",
+        "totals": {
+          "successes": 0,
+          "failures": 0,
+          "interruptions": 0,
+          "ended": 0,
+          "success_rate": null
+        },
+        "latest_checkpoint": null,
+        "validations": {}
+      },
+      "S_seed2": {
+        "update": 0,
+        "unique_updates": 0,
+        "decisions": 0,
+        "status": "WAITING",
+        "data_source": "complete JSON lines from train.log",
+        "totals": {
+          "successes": 0,
+          "failures": 0,
+          "interruptions": 0,
+          "ended": 0,
+          "success_rate": null
+        },
+        "latest_checkpoint": null,
+        "validations": {}
+      },
+      "F_seed2": {
+        "update": 0,
+        "unique_updates": 0,
+        "decisions": 0,
+        "status": "WAITING",
+        "data_source": "complete JSON lines from train.log",
+        "totals": {
+          "successes": 0,
+          "failures": 0,
+          "interruptions": 0,
+          "ended": 0,
+          "success_rate": null
+        },
+        "latest_checkpoint": null,
+        "validations": {}
+      }
+    },
+    "progress": {
+      "time_jst": "2026-10-20T01:23:12+09:00",
+      "trained_jobs": [],
+      "running_jobs": [
+        {
+          "condition": "P",
+          "seed": 0,
+          "pid": 2295494
+        },
+        {
+          "condition": "S",
+          "seed": 0,
+          "pid": 2295495
+        },
+        {
+          "condition": "F",
+          "seed": 0,
+          "pid": 2295496
+        }
+      ],
+      "queued_jobs": [
+        "P_seed1",
+        "S_seed1",
+        "F_seed1",
+        "P_seed2",
+        "S_seed2",
+        "F_seed2"
+      ],
+      "validations_complete": 0,
+      "validations_total": 90,
+      "active_validation": null
+    },
+    "completed_validation_files": 0
+  },
+  "captured_end_jst": "2026-10-20T01:23:16+09:00"
+}

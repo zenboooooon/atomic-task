@@ -1,0 +1,41 @@
+{
+  "experiment": "gaze-jump-v0.10-single-color",
+  "baseline": "v0.9 PPO and jump-v0.1 mechanics",
+  "head_keys": [
+    "look",
+    "approach",
+    "jump"
+  ],
+  "actor_heads": 3,
+  "critic_heads": 3,
+  "task_set": "jump3",
+  "action_size": 5,
+  "training_seeds": [
+    0,
+    1,
+    2
+  ],
+  "training_updates": 2000,
+  "rollout_per_task": 256,
+  "decisions_per_update": 768,
+  "decisions_per_seed": 1536000,
+  "checkpoint_every_updates": 100,
+  "model_width": 256,
+  "ppo_epochs": 2,
+  "minibatch_per_task": 32,
+  "shared_lr": 3e-05,
+  "head_lr": 0.0001,
+  "maximum_parallel_jobs": 3,
+  "layout_manifest": "manifests/gaze_v10_layouts.json",
+  "validation_episodes_per_task": 36,
+  "validation_environment_seed": 9000,
+  "extra_losses": [],
+  "extra_sensors": false,
+  "appearance_randomization": false,
+  "appearance": "target and platform orange / avatar cyan in all tasks",
+  "authorization": "User requested three primitive tasks including jump, a composite with obstacle avoidance then elevated treasure contact, one color pair, and stopping v0.9 to switch.",
+  "preflight_time_jst": "2026-10-19T14:30:48.021209+09:00",
+  "layout_manifest_sha256": "e72e60d405bf1875e81085b75de1a8d0eaf9a0285560d133245741fd957c8fc8",
+  "source_unity_build_sha256": "8162b289fde17ffec19d13402dea23cd69e793e5e9936bf8d73ea94e6bdc82a2",
+  "unity_build_sha256": "e5fc3d3bab2dffa074a540eab538ef11162180bbb88c99d1c4cf88274bc4fe6d"
+}

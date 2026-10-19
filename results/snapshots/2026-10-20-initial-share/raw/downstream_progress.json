@@ -1,0 +1,32 @@
+{
+  "time_jst": "2026-10-20T01:23:12+09:00",
+  "trained_jobs": [],
+  "running_jobs": [
+    {
+      "condition": "P",
+      "seed": 0,
+      "pid": 2295494
+    },
+    {
+      "condition": "S",
+      "seed": 0,
+      "pid": 2295495
+    },
+    {
+      "condition": "F",
+      "seed": 0,
+      "pid": 2295496
+    }
+  ],
+  "queued_jobs": [
+    "P_seed1",
+    "S_seed1",
+    "F_seed1",
+    "P_seed2",
+    "S_seed2",
+    "F_seed2"
+  ],
+  "validations_complete": 0,
+  "validations_total": 90,
+  "active_validation": null
+}

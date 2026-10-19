@@ -25,6 +25,10 @@ if [[ "$mode" == train ]]; then
   printf '%s RUNNING training\n' "$(date -Is)" > "$model_dir/pipeline.status"
   scripts/with_gpu.sh .venv-gpu/bin/python -u scripts/train_downstream_pilot.py \
     --pretrained "runs/gaze_v10_2000/seed${seed}/pretrain3_seed${seed}/checkpoint_2000.pt" \
+    --pretrain-layout-manifest manifests/gaze_v10_layouts.json \
+    --layout-manifest manifests/gaze_v10_wide24_layouts.json \
+    --unity-executable unity/BuildWide24/TpsTreasure.x86_64 \
+    --environment-variant wide24-start-back4 \
     --downstream-task treasure --conditions "$condition" --seeds "$seed" --worker-id "$worker" \
     --rollout 256 --updates 2000 --checkpoint-every 200 --epochs 2 --minibatch 32 \
     --shared-lr 3e-5 --head-lr 1e-4 --output "$base" \
@@ -34,7 +38,7 @@ elif [[ "$mode" == validate ]]; then
   checkpoint=$(printf '%04d' "$index")
   scripts/with_gpu.sh .venv-gpu/bin/python -u scripts/evaluate_multi_pilot.py \
     --checkpoint "$model_dir/checkpoint_${checkpoint}.pt" \
-    --layout-manifest manifests/gaze_v10_layouts.json --episodes-per-agent 2 \
+    --layout-manifest manifests/gaze_v10_wide24_layouts.json --episodes-per-agent 2 \
     --seed 9000 --worker-id "$worker" --output "$model_dir/validation_${checkpoint}.json"
 else
   echo "Unknown worker mode: $mode" >&2

@@ -1,0 +1,983 @@
+{
+  "environment_variant": null,
+  "unity_executable": "unity/Build/TpsPretrainJump.x86_64",
+  "stage": "pretraining_pilot",
+  "task_head_map": {
+    "look": "look",
+    "approach": "approach",
+    "jump": "jump"
+  },
+  "pretraining_head_keys": [
+    "look",
+    "approach",
+    "jump"
+  ],
+  "code_commit": "877e6f41e6968071fa30a67a65300647b723dc96",
+  "code_dirty": true,
+  "condition": null,
+  "checkpoint": "runs/gaze_v10_2000/seed1/pretrain3_seed1/checkpoint_2000.pt",
+  "checkpoint_sha256": "b8da2c80b1847e14e9530293145a0c6f7aabbb82cbf66d7c4ab77fb07a2aad0a",
+  "agent_decisions_trained": 1536000,
+  "split": "validation",
+  "layout_rule": "arena start index 0..5; stride 6",
+  "episodes_per_agent": 6,
+  "unity_build_sha256": "8162b289fde17ffec19d13402dea23cd69e793e5e9936bf8d73ea94e6bdc82a2",
+  "layout_manifest_sha256": "e72e60d405bf1875e81085b75de1a8d0eaf9a0285560d133245741fd957c8fc8",
+  "calibration_sha256": "7b0f48e928298208dd91d911604e152a0a066572d337c78c30f19f5ae1e31f6e",
+  "environment_seed": 9000,
+  "player_log": "runs/gaze_v10_2000/seed1/pretrain3_validation.player.log",
+  "env_step_calls": 1333,
+  "wall_seconds": 191.72931653354317,
+  "summary": {
+    "look": {
+      "episodes": 36,
+      "successes": 36,
+      "success_rate": 1.0,
+      "decision_count": 577,
+      "mean_action": [
+        0.3021768527887269,
+        -0.026982930198955823,
+        -0.0802681200300905,
+        0.01522421402388827,
+        0.1168412693887259
+      ],
+      "mean_abs_action": [
+        0.3122232723840919,
+        0.10487851952594032,
+        0.3726986943536512,
+        0.2586862225826661,
+        0.12239835072722184
+      ]
+    },
+    "approach": {
+      "episodes": 36,
+      "successes": 36,
+      "success_rate": 1.0,
+      "decision_count": 1138,
+      "mean_action": [
+        0.36611199208088413,
+        0.7955112575834882,
+        -0.321683365535079,
+        0.03760313118215358,
+        -0.4959897264987165
+      ],
+      "mean_abs_action": [
+        0.41990040954667257,
+        0.8462088833291326,
+        0.3279766152395072,
+        0.1806082720301302,
+        0.5587836317006034
+      ]
+    },
+    "jump": {
+      "episodes": 36,
+      "successes": 6,
+      "success_rate": 0.16666666666666666,
+      "decision_count": 6096,
+      "mean_action": [
+        -0.5050770732625498,
+        0.535284129301394,
+        0.671033301434707,
+        -0.15922164377851367,
+        0.2543629707558187
+      ],
+      "mean_abs_action": [
+        0.5050770732625498,
+        0.535284129301394,
+        0.6729616361041981,
+        0.15961343657975194,
+        0.2662724994421354
+      ]
+    }
+  },
+  "task_variants": {
+    "look": {
+      "task": "look",
+      "variant": null,
+      "appearance": null
+    },
+    "approach": {
+      "task": "approach",
+      "variant": null,
+      "appearance": null
+    },
+    "jump": {
+      "task": "jump",
+      "variant": null,
+      "appearance": null
+    }
+  },
+  "treasure_diagnostics": null,
+  "results": {
+    "look": [
+      {
+        "agent_id": 5,
+        "episode_ordinal_for_agent": 0,
+        "cumulative_reward": 1.7700576507486403,
+        "final_transition_reward": 1.0004339218139648,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 11,
+        "episode_ordinal_for_agent": 0,
+        "cumulative_reward": 1.693344688275829,
+        "final_transition_reward": 1.0054792165756226,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 13,
+        "episode_ordinal_for_agent": 0,
+        "cumulative_reward": 1.7139786961488426,
+        "final_transition_reward": 0.9989498853683472,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 7,
+        "episode_ordinal_for_agent": 0,
+        "cumulative_reward": 1.7060235291719437,
+        "final_transition_reward": 1.000143051147461,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 11,
+        "episode_ordinal_for_agent": 1,
+        "cumulative_reward": 1.76873882394284,
+        "final_transition_reward": 0.9952502250671387,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 13,
+        "episode_ordinal_for_agent": 1,
+        "cumulative_reward": 1.7108643813990057,
+        "final_transition_reward": 1.0029029846191406,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 6,
+        "episode_ordinal_for_agent": 0,
+        "cumulative_reward": 1.6645592821296304,
+        "final_transition_reward": 1.0007017850875854,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 5,
+        "episode_ordinal_for_agent": 1,
+        "cumulative_reward": 1.70047234906815,
+        "final_transition_reward": 1.0011403560638428,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 4,
+        "episode_ordinal_for_agent": 0,
+        "cumulative_reward": 1.7231569217983633,
+        "final_transition_reward": 0.9851061701774597,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 11,
+        "episode_ordinal_for_agent": 2,
+        "cumulative_reward": 1.7126710466109216,
+        "final_transition_reward": 1.0088857412338257,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 5,
+        "episode_ordinal_for_agent": 2,
+        "cumulative_reward": 1.7499119653366506,
+        "final_transition_reward": 0.9951698780059814,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 4,
+        "episode_ordinal_for_agent": 1,
+        "cumulative_reward": 1.6788448155857623,
+        "final_transition_reward": 1.00336492061615,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 11,
+        "episode_ordinal_for_agent": 3,
+        "cumulative_reward": 1.700197712983936,
+        "final_transition_reward": 0.996217668056488,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 13,
+        "episode_ordinal_for_agent": 2,
+        "cumulative_reward": 1.7504073875024915,
+        "final_transition_reward": 0.9991888999938965,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 7,
+        "episode_ordinal_for_agent": 1,
+        "cumulative_reward": 1.6457925229333341,
+        "final_transition_reward": 0.9999187588691711,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 6,
+        "episode_ordinal_for_agent": 1,
+        "cumulative_reward": 1.7707910253666341,
+        "final_transition_reward": 0.9983963370323181,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 4,
+        "episode_ordinal_for_agent": 2,
+        "cumulative_reward": 1.7420433475635946,
+        "final_transition_reward": 1.003852128982544,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 13,
+        "episode_ordinal_for_agent": 3,
+        "cumulative_reward": 1.7684775609523058,
+        "final_transition_reward": 1.0150730609893799,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 6,
+        "episode_ordinal_for_agent": 2,
+        "cumulative_reward": 1.7522190725430846,
+        "final_transition_reward": 1.0000427961349487,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 5,
+        "episode_ordinal_for_agent": 3,
+        "cumulative_reward": 1.6783303569536656,
+        "final_transition_reward": 1.0061697959899902,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 11,
+        "episode_ordinal_for_agent": 4,
+        "cumulative_reward": 1.721169701544568,
+        "final_transition_reward": 1.0004398822784424,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 13,
+        "episode_ordinal_for_agent": 4,
+        "cumulative_reward": 1.6847609498072416,
+        "final_transition_reward": 1.003960371017456,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 7,
+        "episode_ordinal_for_agent": 2,
+        "cumulative_reward": 1.675255671958439,
+        "final_transition_reward": 0.9981697797775269,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 6,
+        "episode_ordinal_for_agent": 3,
+        "cumulative_reward": 1.7488051711115986,
+        "final_transition_reward": 0.9960364103317261,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 4,
+        "episode_ordinal_for_agent": 3,
+        "cumulative_reward": 1.7262569580925629,
+        "final_transition_reward": 1.0052454471588135,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 6,
+        "episode_ordinal_for_agent": 4,
+        "cumulative_reward": 1.7333261801395565,
+        "final_transition_reward": 0.9919536709785461,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 7,
+        "episode_ordinal_for_agent": 3,
+        "cumulative_reward": 1.704473515972495,
+        "final_transition_reward": 0.9965898394584656,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 11,
+        "episode_ordinal_for_agent": 5,
+        "cumulative_reward": 1.696840865071863,
+        "final_transition_reward": 1.000877857208252,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 13,
+        "episode_ordinal_for_agent": 5,
+        "cumulative_reward": 1.7011934437323362,
+        "final_transition_reward": 1.0017447471618652,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 4,
+        "episode_ordinal_for_agent": 4,
+        "cumulative_reward": 1.689554903190583,
+        "final_transition_reward": 0.9908881187438965,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 5,
+        "episode_ordinal_for_agent": 4,
+        "cumulative_reward": 1.6657198102911934,
+        "final_transition_reward": 0.9977587461471558,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 6,
+        "episode_ordinal_for_agent": 5,
+        "cumulative_reward": 1.698154958896339,
+        "final_transition_reward": 1.002753734588623,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 7,
+        "episode_ordinal_for_agent": 4,
+        "cumulative_reward": 1.7114252420142293,
+        "final_transition_reward": 0.9898889660835266,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 4,
+        "episode_ordinal_for_agent": 5,
+        "cumulative_reward": 1.7198545476421714,
+        "final_transition_reward": 1.004975438117981,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 5,
+        "episode_ordinal_for_agent": 5,
+        "cumulative_reward": 1.6909280274994671,
+        "final_transition_reward": 1.003034234046936,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 7,
+        "episode_ordinal_for_agent": 5,
+        "cumulative_reward": 1.744410362909548,
+        "final_transition_reward": 0.985916256904602,
+        "interrupted": false,
+        "success": true
+      }
+    ],
+    "approach": [
+      {
+        "agent_id": 10,
+        "episode_ordinal_for_agent": 0,
+        "cumulative_reward": 1.4874737018253654,
+        "final_transition_reward": 1.0081253051757812,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 3,
+        "episode_ordinal_for_agent": 0,
+        "cumulative_reward": 1.5833363964920864,
+        "final_transition_reward": 1.001990556716919,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 14,
+        "episode_ordinal_for_agent": 0,
+        "cumulative_reward": 1.6170251966104843,
+        "final_transition_reward": 1.0021708011627197,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 12,
+        "episode_ordinal_for_agent": 0,
+        "cumulative_reward": 1.691160574380774,
+        "final_transition_reward": 1.0209693908691406,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 2,
+        "episode_ordinal_for_agent": 0,
+        "cumulative_reward": 1.6946842356701382,
+        "final_transition_reward": 1.0071097612380981,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 16,
+        "episode_ordinal_for_agent": 0,
+        "cumulative_reward": 1.7489781876211055,
+        "final_transition_reward": 1.0019440650939941,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 10,
+        "episode_ordinal_for_agent": 1,
+        "cumulative_reward": 1.6498808921896853,
+        "final_transition_reward": 1.0098603963851929,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 2,
+        "episode_ordinal_for_agent": 1,
+        "cumulative_reward": 1.7388402235228568,
+        "final_transition_reward": 1.0140345096588135,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 3,
+        "episode_ordinal_for_agent": 1,
+        "cumulative_reward": 1.6502414111746475,
+        "final_transition_reward": 1.0157843828201294,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 16,
+        "episode_ordinal_for_agent": 1,
+        "cumulative_reward": 1.5690567566198297,
+        "final_transition_reward": 0.9997444152832031,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 12,
+        "episode_ordinal_for_agent": 1,
+        "cumulative_reward": 1.717533331073355,
+        "final_transition_reward": 0.998155415058136,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 14,
+        "episode_ordinal_for_agent": 1,
+        "cumulative_reward": 1.7149027583072893,
+        "final_transition_reward": 1.0078043937683105,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 10,
+        "episode_ordinal_for_agent": 2,
+        "cumulative_reward": 1.7650312156183645,
+        "final_transition_reward": 0.998148500919342,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 3,
+        "episode_ordinal_for_agent": 2,
+        "cumulative_reward": 1.5354850628064014,
+        "final_transition_reward": 1.003363013267517,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 16,
+        "episode_ordinal_for_agent": 2,
+        "cumulative_reward": 1.68833543069195,
+        "final_transition_reward": 1.0073249340057373,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 14,
+        "episode_ordinal_for_agent": 2,
+        "cumulative_reward": 1.6424003629363142,
+        "final_transition_reward": 1.0043833255767822,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 10,
+        "episode_ordinal_for_agent": 3,
+        "cumulative_reward": 1.680998781521339,
+        "final_transition_reward": 1.014517068862915,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 3,
+        "episode_ordinal_for_agent": 3,
+        "cumulative_reward": 1.658057639200706,
+        "final_transition_reward": 1.0003010034561157,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 12,
+        "episode_ordinal_for_agent": 2,
+        "cumulative_reward": 1.6691926018684171,
+        "final_transition_reward": 1.0052472352981567,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 16,
+        "episode_ordinal_for_agent": 3,
+        "cumulative_reward": 1.5549650493776426,
+        "final_transition_reward": 0.9984686970710754,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 2,
+        "episode_ordinal_for_agent": 2,
+        "cumulative_reward": 1.4602406432386488,
+        "final_transition_reward": 0.9981058835983276,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 14,
+        "episode_ordinal_for_agent": 3,
+        "cumulative_reward": 1.6278790344367735,
+        "final_transition_reward": 0.9977931380271912,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 10,
+        "episode_ordinal_for_agent": 4,
+        "cumulative_reward": 1.7356300771352835,
+        "final_transition_reward": 0.9983459115028381,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 3,
+        "episode_ordinal_for_agent": 4,
+        "cumulative_reward": 1.6203936099773273,
+        "final_transition_reward": 1.004076361656189,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 12,
+        "episode_ordinal_for_agent": 3,
+        "cumulative_reward": 1.7485393924289383,
+        "final_transition_reward": 0.9985125660896301,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 16,
+        "episode_ordinal_for_agent": 4,
+        "cumulative_reward": 1.630980652407743,
+        "final_transition_reward": 1.0016605854034424,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 2,
+        "episode_ordinal_for_agent": 3,
+        "cumulative_reward": 1.6541315642534755,
+        "final_transition_reward": 1.0041102170944214,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 14,
+        "episode_ordinal_for_agent": 4,
+        "cumulative_reward": 1.604280102881603,
+        "final_transition_reward": 1.022536039352417,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 10,
+        "episode_ordinal_for_agent": 5,
+        "cumulative_reward": 1.6768801389844157,
+        "final_transition_reward": 1.0142635107040405,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 12,
+        "episode_ordinal_for_agent": 4,
+        "cumulative_reward": 1.5528954761684872,
+        "final_transition_reward": 0.9986559152603149,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 16,
+        "episode_ordinal_for_agent": 5,
+        "cumulative_reward": 1.5005716241430491,
+        "final_transition_reward": 1.00313401222229,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 14,
+        "episode_ordinal_for_agent": 5,
+        "cumulative_reward": 1.488495140161831,
+        "final_transition_reward": 1.0078835487365723,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 3,
+        "episode_ordinal_for_agent": 5,
+        "cumulative_reward": 1.732363412185805,
+        "final_transition_reward": 1.008398175239563,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 2,
+        "episode_ordinal_for_agent": 4,
+        "cumulative_reward": 1.7345187606406398,
+        "final_transition_reward": 0.9981290102005005,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 12,
+        "episode_ordinal_for_agent": 5,
+        "cumulative_reward": 1.7296657083788887,
+        "final_transition_reward": 1.0056778192520142,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 2,
+        "episode_ordinal_for_agent": 5,
+        "cumulative_reward": 1.5806815836112946,
+        "final_transition_reward": 0.9980965852737427,
+        "interrupted": false,
+        "success": true
+      }
+    ],
+    "jump": [
+      {
+        "agent_id": 1,
+        "episode_ordinal_for_agent": 0,
+        "cumulative_reward": 0.9700587434927002,
+        "final_transition_reward": 0.9981672167778015,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 0,
+        "episode_ordinal_for_agent": 0,
+        "cumulative_reward": 0.9698845834936947,
+        "final_transition_reward": 0.998167097568512,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 1,
+        "episode_ordinal_for_agent": 1,
+        "cumulative_reward": 0.9699554783292115,
+        "final_transition_reward": 0.9981670379638672,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 1,
+        "episode_ordinal_for_agent": 2,
+        "cumulative_reward": 0.9697542581707239,
+        "final_transition_reward": 0.9981672763824463,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 8,
+        "episode_ordinal_for_agent": 0,
+        "cumulative_reward": -0.365768177784048,
+        "final_transition_reward": -0.0018326456192880869,
+        "interrupted": true,
+        "success": false
+      },
+      {
+        "agent_id": 9,
+        "episode_ordinal_for_agent": 0,
+        "cumulative_reward": -0.36534748354461044,
+        "final_transition_reward": -0.0018326456192880869,
+        "interrupted": true,
+        "success": false
+      },
+      {
+        "agent_id": 15,
+        "episode_ordinal_for_agent": 0,
+        "cumulative_reward": -0.3665662113344297,
+        "final_transition_reward": -0.0018326456192880869,
+        "interrupted": true,
+        "success": false
+      },
+      {
+        "agent_id": 17,
+        "episode_ordinal_for_agent": 0,
+        "cumulative_reward": -0.367599010351114,
+        "final_transition_reward": -0.0018326457357034087,
+        "interrupted": true,
+        "success": false
+      },
+      {
+        "agent_id": 0,
+        "episode_ordinal_for_agent": 1,
+        "cumulative_reward": -0.367153350263834,
+        "final_transition_reward": -0.0018326457357034087,
+        "interrupted": true,
+        "success": false
+      },
+      {
+        "agent_id": 1,
+        "episode_ordinal_for_agent": 3,
+        "cumulative_reward": -0.3666214714758098,
+        "final_transition_reward": -0.0018326456192880869,
+        "interrupted": true,
+        "success": false
+      },
+      {
+        "agent_id": 8,
+        "episode_ordinal_for_agent": 1,
+        "cumulative_reward": -0.3655017423443496,
+        "final_transition_reward": -0.0018326456192880869,
+        "interrupted": true,
+        "success": false
+      },
+      {
+        "agent_id": 9,
+        "episode_ordinal_for_agent": 1,
+        "cumulative_reward": -0.36643525399267673,
+        "final_transition_reward": -0.0018326456192880869,
+        "interrupted": true,
+        "success": false
+      },
+      {
+        "agent_id": 15,
+        "episode_ordinal_for_agent": 1,
+        "cumulative_reward": -0.36619763041380793,
+        "final_transition_reward": -0.0018326457357034087,
+        "interrupted": true,
+        "success": false
+      },
+      {
+        "agent_id": 17,
+        "episode_ordinal_for_agent": 1,
+        "cumulative_reward": -0.3661413691006601,
+        "final_transition_reward": -0.0018326457357034087,
+        "interrupted": true,
+        "success": false
+      },
+      {
+        "agent_id": 0,
+        "episode_ordinal_for_agent": 2,
+        "cumulative_reward": -0.36719253985211253,
+        "final_transition_reward": -0.0018326456192880869,
+        "interrupted": true,
+        "success": false
+      },
+      {
+        "agent_id": 1,
+        "episode_ordinal_for_agent": 4,
+        "cumulative_reward": -0.3670820335391909,
+        "final_transition_reward": -0.0018326456192880869,
+        "interrupted": true,
+        "success": false
+      },
+      {
+        "agent_id": 8,
+        "episode_ordinal_for_agent": 2,
+        "cumulative_reward": -0.36662106204312295,
+        "final_transition_reward": -0.0018326456192880869,
+        "interrupted": true,
+        "success": false
+      },
+      {
+        "agent_id": 9,
+        "episode_ordinal_for_agent": 2,
+        "cumulative_reward": -0.36510269867721945,
+        "final_transition_reward": -0.0018326456192880869,
+        "interrupted": true,
+        "success": false
+      },
+      {
+        "agent_id": 15,
+        "episode_ordinal_for_agent": 2,
+        "cumulative_reward": -0.36676787643227726,
+        "final_transition_reward": -0.0018326456192880869,
+        "interrupted": true,
+        "success": false
+      },
+      {
+        "agent_id": 17,
+        "episode_ordinal_for_agent": 2,
+        "cumulative_reward": -0.366989120724611,
+        "final_transition_reward": -0.0018326457357034087,
+        "interrupted": true,
+        "success": false
+      },
+      {
+        "agent_id": 0,
+        "episode_ordinal_for_agent": 3,
+        "cumulative_reward": -0.36602237715851516,
+        "final_transition_reward": -0.0018326456192880869,
+        "interrupted": true,
+        "success": false
+      },
+      {
+        "agent_id": 1,
+        "episode_ordinal_for_agent": 5,
+        "cumulative_reward": -0.36596504517365247,
+        "final_transition_reward": -0.0018326457357034087,
+        "interrupted": true,
+        "success": false
+      },
+      {
+        "agent_id": 8,
+        "episode_ordinal_for_agent": 3,
+        "cumulative_reward": -0.366924227331765,
+        "final_transition_reward": -0.0018326458521187305,
+        "interrupted": true,
+        "success": false
+      },
+      {
+        "agent_id": 9,
+        "episode_ordinal_for_agent": 3,
+        "cumulative_reward": -0.3674453761195764,
+        "final_transition_reward": -0.0018326457357034087,
+        "interrupted": true,
+        "success": false
+      },
+      {
+        "agent_id": 15,
+        "episode_ordinal_for_agent": 3,
+        "cumulative_reward": -0.36644064798019826,
+        "final_transition_reward": -0.0018326456192880869,
+        "interrupted": true,
+        "success": false
+      },
+      {
+        "agent_id": 17,
+        "episode_ordinal_for_agent": 3,
+        "cumulative_reward": -0.36530826531816274,
+        "final_transition_reward": -0.0018326457357034087,
+        "interrupted": true,
+        "success": false
+      },
+      {
+        "agent_id": 0,
+        "episode_ordinal_for_agent": 4,
+        "cumulative_reward": -0.3667306770803407,
+        "final_transition_reward": -0.0018326457357034087,
+        "interrupted": true,
+        "success": false
+      },
+      {
+        "agent_id": 0,
+        "episode_ordinal_for_agent": 5,
+        "cumulative_reward": 0.9700981009518728,
+        "final_transition_reward": 0.9981672167778015,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 8,
+        "episode_ordinal_for_agent": 4,
+        "cumulative_reward": -0.3653010616544634,
+        "final_transition_reward": -0.0018326457357034087,
+        "interrupted": true,
+        "success": false
+      },
+      {
+        "agent_id": 9,
+        "episode_ordinal_for_agent": 4,
+        "cumulative_reward": -0.36672552046366036,
+        "final_transition_reward": -0.0018326457357034087,
+        "interrupted": true,
+        "success": false
+      },
+      {
+        "agent_id": 15,
+        "episode_ordinal_for_agent": 4,
+        "cumulative_reward": -0.36715492547955364,
+        "final_transition_reward": -0.0018326457357034087,
+        "interrupted": true,
+        "success": false
+      },
+      {
+        "agent_id": 17,
+        "episode_ordinal_for_agent": 4,
+        "cumulative_reward": -0.3666917607188225,
+        "final_transition_reward": -0.0018326456192880869,
+        "interrupted": true,
+        "success": false
+      },
+      {
+        "agent_id": 17,
+        "episode_ordinal_for_agent": 5,
+        "cumulative_reward": 0.9698848782572895,
+        "final_transition_reward": 0.9981672167778015,
+        "interrupted": false,
+        "success": true
+      },
+      {
+        "agent_id": 8,
+        "episode_ordinal_for_agent": 5,
+        "cumulative_reward": -0.36635515629313886,
+        "final_transition_reward": -0.0018326456192880869,
+        "interrupted": true,
+        "success": false
+      },
+      {
+        "agent_id": 9,
+        "episode_ordinal_for_agent": 5,
+        "cumulative_reward": -0.36560413311235607,
+        "final_transition_reward": -0.0018326457357034087,
+        "interrupted": true,
+        "success": false
+      },
+      {
+        "agent_id": 15,
+        "episode_ordinal_for_agent": 5,
+        "cumulative_reward": -0.36525792407337576,
+        "final_transition_reward": -0.0018326457357034087,
+        "interrupted": true,
+        "success": false
+      }
+    ]
+  }
+}

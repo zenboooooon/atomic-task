@@ -1,0 +1,13 @@
+{
+  "scripts/train_downstream_pilot.py": "b3ee31c88751bcdccfaa90ade70bdaafdbe0f913be1e9b4dc5ef5ddb0339274b",
+  "scripts/evaluate_multi_pilot.py": "9c6bec7271a018466273404a34d9e5b524bcd9701f7d0fad8fb5fc00bf5d4e56",
+  "scripts/run_gaze_v10_downstream.py": "71e91c12eab4c3c4bc2ffdf1ca8a54f085c9f049b19937c25ada7d50f72ecfcb",
+  "scripts/run_gaze_v10_downstream_worker.sh": "f7f8f71af8aec2adb5436573103fd97271b808f7a66f41b9044600471688d02e",
+  "scripts/record_gaze_v10_training_examples.py": "0dac1fea64f3cd2f6b67e7dce07156c48fa0f2eda601c1e9bc2afaf26839d9db",
+  "scripts/watch_gaze_v10_videos.py": "459674a7a1517aa1b77d07d9537523bcb4b5be31667c11127ebab393aa62a9cd",
+  "configs/gaze_v10_downstream_plan.json": "3203c73420a924d1787a46c84a4999f87bb2460836738d72946ab03f7e6c1c7a",
+  "configs/gaze_v10_contract.json": "530e5562526aea08a8e2e207a4844d748b75d3a1f0b2ffad6457ea5a5de0f1be",
+  "configs/video_pipeline_v10.json": "2329f63974e7227dc0ca1c19b9794491e30a35ba338de7b784272c3562328319",
+  "PROTOCOL.md": "36dfda24d5adc9837ded77fd34dfe9ce8f319ce09092bf7743632b564cb557c2",
+  "runs/gaze_v10_2000/downstream/run.plan.json": "b7bed888d1f6cff41765d8a1b3196c8166ec6ac1bb36d99016b5c54277188cd3"
+}

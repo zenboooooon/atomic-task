@@ -1,6 +1,6 @@
 {
-  "experiment": "gaze-jump-v0.10-single-color-elevated-treasure",
-  "authorization": "User requested three primitive tasks including jump, a composite with obstacle avoidance then elevated treasure contact, one color pair, and stopping v0.9 to switch.",
+  "experiment": "gaze-jump-v0.10-wide24-start-back4",
+  "authorization": "User requested three primitive tasks including jump, a composite with obstacle avoidance then elevated treasure contact, one color pair, and stopping v0.9 to switch. User subsequently approved the wider preview for composite training: 24m floor and player start 4m farther from treasure.",
   "downstream_task": "treasure",
   "obstacle_motion": "static",
   "success_condition": "avoid obstacle collision, jump onto platform, land, then contact treasure while on platform",
@@ -68,8 +68,8 @@
     "action_sampling_seed": "40000 + seed",
     "new_heads": "same initial actor and critic weights for P, S, F within each seed"
   },
-  "layout_manifest": "manifests/gaze_v10_layouts.json",
-  "remote_output": "/home/s6323038/atomic-task-jump-v10/runs/gaze_v10_2000/downstream",
+  "layout_manifest": "manifests/gaze_v10_wide24_layouts.json",
+  "remote_output": "/home/s6323038/atomic-task-jump-v10/runs/gaze_v10_2000/downstream_wide24",
   "training_success_denominator": "sum successes + failures + interruptions over unique updates; exclude unfinished episodes and discarded surplus transitions",
   "status": "waiting_for_primitive_training_and_validation",
   "source_checkpoint_pattern": "runs/gaze_v10_2000/seed{seed}/pretrain3_seed{seed}/checkpoint_2000.pt",
@@ -93,5 +93,25 @@
     "approach": "approach",
     "jump": "jump"
   },
-  "action_size": 5
+  "action_size": 5,
+  "environment_variant": "wide24-start-back4",
+  "source_layout_manifest": "manifests/gaze_v10_layouts.json",
+  "unity_executable": "unity/BuildWide24/TpsTreasure.x86_64",
+  "environment_source": "environment_sources/wide24",
+  "geometry": {
+    "floor_side_m": 24,
+    "player_start_shift_m": 4,
+    "initial_horizontal_distance_m": [
+      10.05308309885531,
+      10.848502131334055
+    ],
+    "bounds_m": 11.65,
+    "platform_treasure_obstacles": "original positions and geometries"
+  },
+  "original_unstarted_plan": "configs/gaze_v10_downstream_plan.original18.json",
+  "source_unity_build_sha256": "8162b289fde17ffec19d13402dea23cd69e793e5e9936bf8d73ea94e6bdc82a2",
+  "unity_build_sha256": "9dfa6cd12975844b2a5079f2fa6437b933c6f76190e50b3550f3447accfe9829",
+  "source_layout_manifest_sha256": "e72e60d405bf1875e81085b75de1a8d0eaf9a0285560d133245741fd957c8fc8",
+  "layout_manifest_sha256": "4341188ac4c4b425439fd08ce499aa133bab590d4bfe9bed0872b07be0ecfacf",
+  "amendment_time_jst": "2026-10-20T00:55:10+09:00"
 }

@@ -1,0 +1,13 @@
+{
+  "variant": "wide24-start-back4",
+  "training_P_S_F_one_update_passed": true,
+  "same_initial_actor_and_critic": true,
+  "P_shared_frozen_S_F_shared_updated": true,
+  "deterministic_evaluation_16_episodes_completed": true,
+  "recorder_two_steps_loaded_correct_environment": true,
+  "validation_layout_ids_are_wide": true,
+  "build_sha256": "9dfa6cd12975844b2a5079f2fa6437b933c6f76190e50b3550f3447accfe9829",
+  "layout_sha256": "4341188ac4c4b425439fd08ce499aa133bab590d4bfe9bed0872b07be0ecfacf",
+  "count_in_formal_training_and_validation": false,
+  "source_checkpoint_for_smoke": "seed0/checkpoint_1900.pt"
+}

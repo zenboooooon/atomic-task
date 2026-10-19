@@ -1,0 +1,13 @@
+{
+  "time_jst": "2026-10-20T00:58:31+09:00",
+  "experiment": "gaze-jump-v0.10-wide24-start-back4",
+  "chain_pid": 2024865,
+  "chain_released": true,
+  "source_primitive_training_unchanged": true,
+  "wide_training_eval_record_smoke_passed": true,
+  "output": "/home/s6323038/atomic-task-jump-v10/runs/gaze_v10_2000/downstream_wide24",
+  "formal_start_gate": "All 3 seeds finish 2000 updates, deterministic validation of all 3 tasks (36 episodes each), and primitive processes exit.",
+  "old_18m_training_started": false,
+  "wide_build_sha256": "9dfa6cd12975844b2a5079f2fa6437b933c6f76190e50b3550f3447accfe9829",
+  "wide_layout_sha256": "4341188ac4c4b425439fd08ce499aa133bab590d4bfe9bed0872b07be0ecfacf"
+}

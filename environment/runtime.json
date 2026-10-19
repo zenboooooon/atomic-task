@@ -1,0 +1,18 @@
+{
+  "python": "3.10.12",
+  "packages": {
+    "torch": "2.10.0+cu130",
+    "numpy": "1.23.5",
+    "opencv-python-headless": "4.8.1.78",
+    "mlagents-envs": "1.1.0",
+    "Pillow": "12.3.0",
+    "protobuf": "3.20.3",
+    "grpcio": "1.48.2"
+  },
+  "unity": "6000.0.84f1",
+  "gpu": {
+    "name": "NVIDIA GeForce RTX 5090",
+    "total_memory_bytes": 33670758400
+  },
+  "torch_cuda_version": "13.0"
+}

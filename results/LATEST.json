@@ -1,0 +1,7 @@
+{
+  "snapshot": "results/snapshots/2026-10-20-initial-share",
+  "captured_jst": "2026-10-20T01:23:16+09:00",
+  "summary": "results/snapshots/2026-10-20-initial-share/summary.json",
+  "report": "EXPERIMENT_REPORT.md",
+  "live_training_continues": true
+}

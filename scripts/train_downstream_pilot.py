@@ -47,6 +47,10 @@ def main() -> None:
     parser.add_argument("--pretrained", type=Path, required=True)
     parser.add_argument("--pretrain-layout-manifest", type=Path,
                         help="source manifest for an unchanged pretraining player")
+    parser.add_argument("--layout-manifest", type=Path, default=ROOT / "manifests/pilot_layouts.json")
+    parser.add_argument("--unity-executable", type=Path,
+                        help="separately built downstream environment; source player remains fixed")
+    parser.add_argument("--environment-variant", default="original18")
     parser.add_argument("--seeds", default="0,1")
     parser.add_argument("--conditions", default="S,R,P,F")
     parser.add_argument("--downstream-task", choices=("composite", "treasure"),
@@ -90,7 +94,7 @@ def main() -> None:
         raise ValueError("pretraining task set does not match downstream protocol")
     pretrain_player, _ = pretraining_player(tuple(source_tasks))
     pretrain_build = ROOT / "unity/Build" / f"{pretrain_player}.x86_64"
-    downstream_manifest = ROOT / "manifests/pilot_layouts.json"
+    downstream_manifest = args.layout_manifest.resolve()
     pretrain_manifest = (args.pretrain_layout_manifest.resolve()
                          if args.pretrain_layout_manifest is not None else downstream_manifest)
     pretrain_layout_sha = layout_manifest_sha256(pretrain_build, pretrain_manifest)
@@ -103,9 +107,15 @@ def main() -> None:
     if pretrained["calibration_sha256"] != calibration_sha:
         raise ValueError("depth calibration mismatch")
     downstream_player = "TpsTreasure" if args.downstream_task == "treasure" else "TpsComposite"
-    executable = ROOT / "unity/Build" / f"{downstream_player}.x86_64"
+    executable = (args.unity_executable.resolve() if args.unity_executable is not None
+                  else ROOT / "unity/Build" / f"{downstream_player}.x86_64")
     composite_build_sha = unity_build_sha256(executable)
     layout_sha = layout_manifest_sha256(executable, downstream_manifest)
+    environment_identity = {
+        "unity_executable": str(executable.relative_to(ROOT)),
+        "layout_manifest": str(downstream_manifest.relative_to(ROOT)),
+        "environment_variant": args.environment_variant,
+    }
     if args.pretrain_layout_manifest is None and layout_sha != pretrain_layout_sha:
         raise ValueError("composite and pretraining layouts differ")
     if args.pretrain_layout_manifest is not None:
@@ -217,6 +227,7 @@ def main() -> None:
             else:
                 _save_checkpoint({
                     "stage": "downstream_pilot", "condition": condition,
+                    **environment_identity,
                     "downstream_task": args.downstream_task,
                     "seed": seed, "update": 0, "agent_decisions": 0,
                     **code_state,
@@ -268,6 +279,7 @@ def main() -> None:
                     if (update + 1) % args.checkpoint_every == 0 or update + 1 == args.updates:
                         _save_checkpoint({
                             "stage": "downstream_pilot", "condition": condition,
+                            **environment_identity,
                             "downstream_task": args.downstream_task,
                             "seed": seed, "update": update + 1,
                             **code_state,
@@ -289,6 +301,7 @@ def main() -> None:
             finally:
                 collector.close()
             report = {
+                **environment_identity,
                 "condition": condition,
                 "downstream_task": args.downstream_task,
                 "seed": seed,

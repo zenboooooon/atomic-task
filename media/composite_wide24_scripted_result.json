@@ -1,0 +1,20 @@
+{
+  "scripted": true,
+  "trained_policy": false,
+  "success": true,
+  "reason": "success",
+  "layout_id": "3a3b65bf41c3a4866c41",
+  "jumps": 1,
+  "landed_on_platform": true,
+  "simulation_seconds": 4.7399983406066895,
+  "final_position": {
+    "x": 2.7027060985565186,
+    "y": 1.9998759031295776,
+    "z": -5.927298069000244
+  },
+  "floor_side_m": 24,
+  "initial_horizontal_distance_m": 10.668415907247145,
+  "player_start_shift_m": 4,
+  "preview_only": true,
+  "training_changed": false
+}

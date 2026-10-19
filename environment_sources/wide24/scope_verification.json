@@ -1,0 +1,9 @@
+{
+  "only_CSharp_changes": [
+    "treasure floor 18 -> 24",
+    "treasure bounds 8.65 -> 11.65"
+  ],
+  "all_other_CSharp_identical": true,
+  "manifest_identical_to_approved_preview": true,
+  "layout_sha256": "4341188ac4c4b425439fd08ce499aa133bab590d4bfe9bed0872b07be0ecfacf"
+}

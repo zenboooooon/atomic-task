@@ -5,4 +5,14 @@ unity/Library/
 unity/Temp/
 unity/Logs/
 unity/Build/
+unity/Build*/
+unity/UserSettings/
 __pycache__/
+**/__pycache__/
+.DS_Store
+**/._*
+*.pt
+*.pth
+*.onnx
+.env
+.env.*

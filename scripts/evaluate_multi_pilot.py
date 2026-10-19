@@ -113,6 +113,8 @@ def main() -> None:
     else:
         raise ValueError("checkpoint is not a multi-arena pilot")
     executable = ROOT / "unity/Build" / f"{player}.x86_64"
+    if stage == "downstream_pilot" and checkpoint.get("unity_executable"):
+        executable = ROOT / checkpoint["unity_executable"]
     if checkpoint.get("layout_manifest_sha256") != layout_manifest_sha256(
         executable, args.layout_manifest.resolve()
     ):
@@ -241,7 +243,7 @@ def main() -> None:
         for task in task_names
     }
     treasure_diagnostics = (
-        _treasure_diagnostics(player_log, ROOT / "manifests/pilot_layouts.json",
+        _treasure_diagnostics(player_log, args.layout_manifest.resolve(),
                               args.split, args.episodes_per_agent)
         if stage == "downstream_pilot" and task_argument == "treasure" else None
     )
@@ -249,6 +251,8 @@ def main() -> None:
         if treasure_diagnostics["all"]["successes"] != summary["treasure"]["successes"]:
             raise RuntimeError("treasure Unity logs and LLAPI success counts disagree")
     report = {
+        "environment_variant": checkpoint.get("environment_variant"),
+        "unity_executable": str(executable.relative_to(ROOT)),
         "stage": stage,
         "task_head_map": checkpoint.get("task_head_map"),
         "pretraining_head_keys": checkpoint.get("pretraining_head_keys"),

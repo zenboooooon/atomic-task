@@ -1,0 +1,17 @@
+{
+  "scripts/train_pretraining_pilot.py": "89c3f88d3aa9e72d18716552a3b632e39c5e063349ecc1c9dac4d909b0be83d0",
+  "scripts/run_gaze_v10_pretrain_seed.sh": "83a4526b52f47dce63700230b0a8c80798b971b26ca87c1f8d6adc863615f8a4",
+  "scripts/run_gaze_v10_pretraining.sh": "a87ff9600fba5d70906edd4aaa973287427dcb4f01143c22c9f360bfc5962864",
+  "scripts/wait_gaze_v10_downstream.py": "238cc1e833a7ae41288d51eda750dbac185379fd7c733ab7f3025473340ac4a5",
+  "python/tps_transfer/model.py": "c7fedfc0d8829d9d51c5fa472f1bafc817c2eb0bb5bc4e98b9b9566023fa8c7c",
+  "python/tps_transfer/ppo.py": "41ff322b2a185334dd90841f6b506d5512bd338fa8e5d41ea39e47e2efcff690",
+  "python/tps_transfer/pilot.py": "f735ce77e30d0719f9a5593c46d32521f6cb02302177755c7e4d76aab3061e56",
+  "python/tps_transfer/observation.py": "e6167d701b6817c6d3e70639c5962b81416f98cd7b85c1753218d5cdec9a14d0",
+  "python/tps_transfer/depth.py": "1776624b8ec171bb65e476cc349608ac505f93ad04701ad72e7095b7e3aec42a",
+  "manifests/gaze_v10_layouts.json": "e72e60d405bf1875e81085b75de1a8d0eaf9a0285560d133245741fd957c8fc8",
+  "manifests/pilot_layouts.json": "e72e60d405bf1875e81085b75de1a8d0eaf9a0285560d133245741fd957c8fc8",
+  "manifests/phase1/depth_selected_v02_normalization.json": "7b0f48e928298208dd91d911604e152a0a066572d337c78c30f19f5ae1e31f6e",
+  "unity/Assets/Scripts/TpsTaskAgent.cs": "19fe325aa829c3cd637c0aa85ea566d1228f043938610b9c2b103a200c4e9c33",
+  "unity/Assets/Editor/TpsMultiSceneBuilder.cs": "7f79e04ebf0632a82187dd6f1bafa52f19f8963bab36a19c9b9ea249c42ed4fc",
+  "runs/gaze_v10_2000/run.plan.json": "4e46ff4d487ac575b9a5289d44d585b9e0a7133b8e0b26e676f7976663498c54"
+}

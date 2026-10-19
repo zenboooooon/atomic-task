@@ -1,0 +1,122 @@
+{
+  "raw/primitive_seed0/report.json": {
+    "source": "runs/gaze_v10_2000/seed0/pretrain3_seed0/report.json",
+    "sha256": "189082a3d940b123755ae4f4f0445b1ce7f8aa40cf5ceaf14d399dce9adfdbd8",
+    "bytes": 2473003,
+    "mtime_jst": "2026-10-20T01:10:41+09:00"
+  },
+  "raw/primitive_seed0/validation.json": {
+    "source": "runs/gaze_v10_2000/seed0/pretrain3_validation.json",
+    "sha256": "92223d6988d66cca3cfa68d15ef882bbffa8c72a98b8a41c10b0afad192f37ac",
+    "bytes": 28824,
+    "mtime_jst": "2026-10-20T01:12:32+09:00"
+  },
+  "raw/primitive_seed0/pipeline.status": {
+    "source": "runs/gaze_v10_2000/seed0/pipeline.status",
+    "sha256": "c23e88fe1389c4bafb88fca8f7ac72daa855a94e96dccd069decc80e882db6ad",
+    "bytes": 35,
+    "mtime_jst": "2026-10-20T01:12:33+09:00"
+  },
+  "raw/primitive_seed1/report.json": {
+    "source": "runs/gaze_v10_2000/seed1/pretrain3_seed1/report.json",
+    "sha256": "f2b4262f2eee8306de799e8075b7802275bd06295c29d6ae8726e3076e8bda01",
+    "bytes": 2472034,
+    "mtime_jst": "2026-10-20T01:09:09+09:00"
+  },
+  "raw/primitive_seed1/validation.json": {
+    "source": "runs/gaze_v10_2000/seed1/pretrain3_validation.json",
+    "sha256": "ab7f97add43c428aa15fb223343edcfbf7a31069ea447f1df6e416fc9b14cdc6",
+    "bytes": 28899,
+    "mtime_jst": "2026-10-20T01:12:26+09:00"
+  },
+  "raw/primitive_seed1/pipeline.status": {
+    "source": "runs/gaze_v10_2000/seed1/pipeline.status",
+    "sha256": "257a8991df558d156dfaf7846726eee2886bdc6fe6c7b23c2974f924a91c82dd",
+    "bytes": 35,
+    "mtime_jst": "2026-10-20T01:12:27+09:00"
+  },
+  "raw/primitive_seed2/report.json": {
+    "source": "runs/gaze_v10_2000/seed2/pretrain3_seed2/report.json",
+    "sha256": "ca5d67be8c0a718e38197195248667168363ff7c5a95392cf88d8b550801ba0c",
+    "bytes": 2475077,
+    "mtime_jst": "2026-10-20T01:13:54+09:00"
+  },
+  "raw/primitive_seed2/validation.json": {
+    "source": "runs/gaze_v10_2000/seed2/pretrain3_validation.json",
+    "sha256": "a78e359eb7d06e8d720f339e0c5e5724c3a628d00bbefb98036fadb7ff8e3a30",
+    "bytes": 28824,
+    "mtime_jst": "2026-10-20T01:15:30+09:00"
+  },
+  "raw/primitive_seed2/pipeline.status": {
+    "source": "runs/gaze_v10_2000/seed2/pipeline.status",
+    "sha256": "a18ed09a6fd249f28d02f0672a64a7845e503dbc6e837f91d059e25163859944",
+    "bytes": 35,
+    "mtime_jst": "2026-10-20T01:15:30+09:00"
+  },
+  "raw/primitive_run.plan.json": {
+    "source": "runs/gaze_v10_2000/run.plan.json",
+    "sha256": "4e46ff4d487ac575b9a5289d44d585b9e0a7133b8e0b26e676f7976663498c54",
+    "bytes": 1415,
+    "mtime_jst": "2026-10-19T14:30:48+09:00"
+  },
+  "raw/primitive_pipeline.status": {
+    "source": "runs/gaze_v10_2000/pipeline.status",
+    "sha256": "3eb8d51b089de82f7ff2f22b311d37af9945c668f6d1c57509eafbbd1fa33edf",
+    "bytes": 69,
+    "mtime_jst": "2026-10-20T01:15:34+09:00"
+  },
+  "raw/downstream_run.plan.json": {
+    "source": "runs/gaze_v10_2000/downstream_wide24/run.plan.json",
+    "sha256": "a754894f79f5126effe3f723b7ab5c6cc1787292199f1738585b92e46e0c9104",
+    "bytes": 4924,
+    "mtime_jst": "2026-10-20T01:15:36+09:00"
+  },
+  "raw/downstream_progress.json": {
+    "source": "runs/gaze_v10_2000/downstream_wide24/progress.json",
+    "sha256": "0db03e045d1512b5ef3c9341e9a410231fe89f1188380b05f7153920eddf47f9",
+    "bytes": 515,
+    "mtime_jst": "2026-10-20T01:23:12+09:00"
+  },
+  "raw/downstream_pipeline.status": {
+    "source": "runs/gaze_v10_2000/downstream_wide24/pipeline.status",
+    "sha256": "eccfce7ff3270ade71f44dfc229c1941389684d9ef4c247359f826e5556df5da",
+    "bytes": 63,
+    "mtime_jst": "2026-10-20T01:23:12+09:00"
+  },
+  "audit/algorithm_scope_verification.json": {
+    "source": "runs/wide24_change/algorithm_scope_verification.json",
+    "sha256": "09ae21822d460072e247319df6391eb0f03c4a6c575c0f59de4665d3b6a67d27",
+    "bytes": 269,
+    "mtime_jst": "2026-10-20T00:56:20+09:00"
+  },
+  "audit/fixed_files_before.json": {
+    "source": "runs/wide24_change/fixed_files_before.json",
+    "sha256": "7e448b0e876d69a8a5e6fa6556b08d948ddeedb8808aef28602fe9f4f0ed1d53",
+    "bytes": 1622,
+    "mtime_jst": "2026-10-20T00:51:55+09:00"
+  },
+  "audit/original_file_hashes.json": {
+    "source": "runs/wide24_change/original_file_hashes.json",
+    "sha256": "e2d709dca41c010f5a894fdfdfb04f3caeed40c046c8a8344095158e1b0447b5",
+    "bytes": 1184,
+    "mtime_jst": "2026-10-20T00:49:45+09:00"
+  },
+  "audit/publication_verified.json": {
+    "source": "runs/wide24_change/publication_verified.json",
+    "sha256": "59eecd1596ce71a9629e4252e02bd4271d5b259532bba7dae4f0b06b504cd31e",
+    "bytes": 704,
+    "mtime_jst": "2026-10-20T00:58:31+09:00"
+  },
+  "audit/smoke_verification.json": {
+    "source": "runs/wide24_change/smoke_verification.json",
+    "sha256": "86c834f4dbd4158e33eb65b47ef6f3bb05c48316840fff3ef718c0ebc4c90d69",
+    "bytes": 612,
+    "mtime_jst": "2026-10-20T00:57:21+09:00"
+  },
+  "audit/original18_unstarted_plan.json": {
+    "source": "runs/gaze_v10_2000/downstream_original18_unstarted/run.plan.json",
+    "sha256": "b7bed888d1f6cff41765d8a1b3196c8166ec6ac1bb36d99016b5c54277188cd3",
+    "bytes": 3496,
+    "mtime_jst": "2026-10-19T14:30:48+09:00"
+  }
+}

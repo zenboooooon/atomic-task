@@ -13,7 +13,7 @@ import tarfile
 import time
 
 ROOT = Path(__file__).resolve().parents[1]
-BASE = ROOT / "runs/gaze_v10_2000/downstream"
+BASE = ROOT / "runs/gaze_v10_2000/downstream_wide24"
 TZ = datetime.timezone(datetime.timedelta(hours=9))
 JOBS = [(condition, seed) for seed in range(3) for condition in ("P", "S", "F")]
 UPDATES = list(range(200, 2001, 200))
@@ -53,16 +53,33 @@ def preflight() -> None:
     assert plan["conditions"] == ["P", "S", "F"] and plan["seeds"] == [0, 1, 2]
     assert plan["updates_per_condition_seed"] == 2000 and plan["rollout"] == 256
     assert plan["validation_episodes_per_checkpoint"] == 32
-    manifest = ROOT / "manifests/gaze_v10_layouts.json"
+    source_manifest = ROOT / plan["source_layout_manifest"]
+    manifest = ROOT / plan["layout_manifest"]
     source_build = ROOT / "unity/Build/TpsPretrainJump.x86_64"
-    downstream_build = ROOT / "unity/Build/TpsTreasure.x86_64"
+    downstream_build = ROOT / plan["unity_executable"]
     source_sha = unity_build_sha256(source_build)
     downstream_sha = unity_build_sha256(downstream_build)
-    layout_sha = layout_manifest_sha256(source_build, manifest)
-    assert layout_manifest_sha256(downstream_build, manifest) == layout_sha
+    source_layout_sha = layout_manifest_sha256(source_build, source_manifest)
+    layout_sha = layout_manifest_sha256(downstream_build, manifest)
+    source_layouts = json.loads(source_manifest.read_text())["layouts"]
+    downstream_layouts = json.loads(manifest.read_text())["layouts"]
+    assert len(source_layouts) == len(downstream_layouts)
+    import math
+    for old, new in zip(source_layouts, downstream_layouts):
+        if old["task"] != "treasure":
+            assert old == new, "primitive layouts must remain unchanged"
+            continue
+        allowed = {"player_x", "player_z", "layout_id"}
+        assert {k:v for k,v in old.items() if k not in allowed} == {k:v for k,v in new.items() if k not in allowed}
+        dx, dz = old["target_x"]-old["player_x"], old["target_z"]-old["player_z"]
+        distance = math.hypot(dx, dz)
+        assert math.isclose(new["player_x"], old["player_x"]-4*dx/distance)
+        assert math.isclose(new["player_z"], old["player_z"]-4*dz/distance)
     assert plan["source_unity_build_sha256"] == source_sha
     assert plan["unity_build_sha256"] == downstream_sha
     assert plan["layout_manifest_sha256"] == layout_sha
+    assert plan["source_layout_manifest_sha256"] == source_layout_sha
+    assert plan["environment_variant"] == "wide24-start-back4"
     sources = {}
     for seed in range(3):
         directory = BASE.parent / f"seed{seed}"
@@ -77,19 +94,20 @@ def preflight() -> None:
         assert state["model_config"]["action_size"] == 5
         assert tuple(state["pretraining_tasks"]) == COLOR_TASKS
         assert state["task_variants"] == task_metadata(COLOR_TASKS)
-        assert state["layout_manifest_sha256"] == layout_sha
+        assert state["layout_manifest_sha256"] == source_layout_sha
         assert state["unity_build_sha256"] == source_sha
         evaluation = json.loads((directory / "pretrain3_validation.json").read_text())
         assert all(evaluation["summary"][t]["episodes"] == 36 for t in COLOR_TASKS)
         assert evaluation["checkpoint_sha256"] == hashlib.sha256(path.read_bytes()).hexdigest()
-        assert evaluation["layout_manifest_sha256"] == layout_sha
+        assert evaluation["layout_manifest_sha256"] == source_layout_sha
         sources[str(seed)] = {"checkpoint": str(path.relative_to(ROOT)),
                               "sha256": hashlib.sha256(path.read_bytes()).hexdigest()}
     plan.update(status="running", start_time_jst=now(), preflight_time_jst=now(), sources=sources, unity_build_sha256=downstream_sha,
-                source_unity_build_sha256=source_sha, layout_manifest_sha256=layout_sha)
+                source_unity_build_sha256=source_sha, layout_manifest_sha256=layout_sha,
+                source_layout_manifest_sha256=source_layout_sha)
     save(BASE / "run.plan.json", plan)
     with tarfile.open(BASE / "source_snapshot.tar.gz", "w:gz") as archive:
-        for folder in ("python", "scripts", "configs", "manifests", "unity/Assets/Scripts", "unity/Assets/Editor"):
+        for folder in ("python", "scripts", "configs", "manifests", "unity/Assets/Scripts", "unity/Assets/Editor", "environment_sources/wide24"):
             for path in sorted((ROOT / folder).rglob("*")):
                 if path.is_file() and "__pycache__" not in path.parts and not path.name.startswith("._"):
                     archive.add(path, arcname=str(path.relative_to(ROOT)), recursive=False)

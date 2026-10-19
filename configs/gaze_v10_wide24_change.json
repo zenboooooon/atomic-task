@@ -1,0 +1,32 @@
+{
+  "experiment": "gaze-jump-v0.10-wide24-start-back4",
+  "user_request": "複合タスクは新しく広げたバージョンで学習を回す",
+  "baseline": "v0.10 primitive training and previously unstarted original18 downstream",
+  "approved_preview": "gaze_jump_v10_wide_preview/runs/composite_video_wide/v10_composite_wide.mp4",
+  "authorized_changes": {
+    "composite_floor_side_m": [18, 24],
+    "composite_start_shift_away_from_treasure_m": 4,
+    "composite_initial_horizontal_distance_m": ["6.05–6.85", "10.05–10.85"],
+    "composite_bounds_m": [8.65, 11.65],
+    "training_validation_video_environment": "all use the wider composite version"
+  },
+  "fixed": [
+    "primitive player, layouts, training, checkpoints and final validation",
+    "platform, treasure and all three obstacle positions and geometries",
+    "physics, jump, rewards, success condition and TPS camera sensor",
+    "PPO, model, P/S/F transfer definitions and initial seeds",
+    "training and validation budgets, save and evaluation intervals",
+    "all primitive completion and final validation before downstream launch"
+  ],
+  "implementation": {
+    "environment_variant": "wide24-start-back4",
+    "source_manifest": "manifests/gaze_v10_layouts.json",
+    "downstream_manifest": "manifests/gaze_v10_wide24_layouts.json",
+    "unity_executable": "unity/BuildWide24/TpsTreasure.x86_64",
+    "new_output": "runs/gaze_v10_2000/downstream_wide24",
+    "monitor_alias": "runs/gaze_v10_2000/downstream -> downstream_wide24",
+    "original_unstarted_output_archive": "runs/gaze_v10_2000/downstream_original18_unstarted",
+    "temporary_hold": "SIGSTOP only the existing waiting chain; SIGCONT after publication and verification",
+    "video_pipeline": "same every200 batches; downstream checkpoint path updated, completed primitive videos preserved"
+  }
+}

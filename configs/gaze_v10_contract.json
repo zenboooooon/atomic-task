@@ -75,5 +75,11 @@
     "composite": "baseline treasure reward terms retained; success requires landed platform and treasure contact"
   },
   "initialization": "fresh model and task heads; no v0.9 checkpoint resume",
-  "change_note": "rollout rebalanced from six color groups x128 to three tasks x256 to retain total 768 judgments/update; minibatch total remains96"
+  "change_note": "rollout rebalanced from six color groups x128 to three tasks x256 to retain total 768 judgments/update; minibatch total remains96",
+  "downstream_amendment": {
+    "user_request": "複合タスクは新しく広げたバージョンで学習を回す",
+    "change_contract": "configs/gaze_v10_wide24_change.json",
+    "experiment": "gaze-jump-v0.10-wide24-start-back4",
+    "primitive_experiment_unchanged": true
+  }
 }
