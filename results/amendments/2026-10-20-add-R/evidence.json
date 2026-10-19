@@ -1,0 +1,432 @@
+{
+  "R_plan": {
+    "experiment": "gaze-jump-v0.10-wide24-start-back4-r-addon",
+    "authorization": "User explicitly requested adding random-initialized frozen shared encoder + trained new heads as condition R",
+    "downstream_task": "treasure",
+    "obstacle_motion": "static",
+    "success_condition": "avoid obstacle collision, jump onto platform, land, then contact treasure while on platform",
+    "conditions": [
+      "R"
+    ],
+    "condition_definitions": {
+      "R": "random shared encoder frozen; new actor and critic trained"
+    },
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "source_checkpoint_updates": 2000,
+    "source_seed_policy": "P and F use the primitive model from the matching seed",
+    "model_width": 256,
+    "updates_per_condition_seed": 2000,
+    "rollout": 256,
+    "decisions_per_condition_seed": 512000,
+    "checkpoint_every": 200,
+    "checkpoint_publication": "atomic rename after complete serialization",
+    "epochs": 2,
+    "minibatch": 32,
+    "shared_lr": 0.00003,
+    "head_lr": 0.0001,
+    "training_parallelism": 3,
+    "evaluation_parallelism": 1,
+    "launch_order": [
+      "R_seed0",
+      "R_seed1",
+      "R_seed2"
+    ],
+    "validation_episodes_per_checkpoint": 32,
+    "validation_environment_seed": 9000,
+    "validation_policy": "deterministic tanh mean",
+    "validation_updates": [
+      200,
+      400,
+      600,
+      800,
+      1000,
+      1200,
+      1400,
+      1600,
+      1800,
+      2000
+    ],
+    "total_training_jobs": 3,
+    "total_validations": 30,
+    "matching": {
+      "network_seed": "20000 + seed",
+      "head_seed": "30000 + seed",
+      "environment_seed": "10000 + seed",
+      "action_sampling_seed": "40000 + seed",
+      "new_heads": "same initial actor and critic weights for P, S, F, R within each seed",
+      "random_shared": "R and S share identical random initial shared encoder weights for the matching seed"
+    },
+    "layout_manifest": "manifests/gaze_v10_wide24_layouts.json",
+    "remote_output": "/home/s6323038/atomic-task-jump-v10/runs/gaze_v10_2000/downstream_wide24",
+    "training_success_denominator": "sum successes + failures + interruptions over unique updates; exclude unfinished episodes and discarded surplus transitions",
+    "status": "queued_after_existing_PSF_training",
+    "source_checkpoint_pattern": "runs/gaze_v10_2000/seed{seed}/pretrain3_seed{seed}/checkpoint_2000.pt",
+    "source_agent_decisions": 1536000,
+    "primitive_validation_episodes_per_head": 36,
+    "source_head_keys": [
+      "look",
+      "approach",
+      "jump"
+    ],
+    "start_gate": "All 3 seeds finish 2000 updates, deterministic validation of all 3 tasks (36 episodes each), and primitive processes exit.",
+    "appearance": "target and platform orange / avatar cyan in all tasks",
+    "primitive_head_transfer": "Discard all 3 primitive actor/critic pairs; transfer only shared encoder",
+    "source_rollout_groups": [
+      "look",
+      "approach",
+      "jump"
+    ],
+    "source_task_head_map": {
+      "look": "look",
+      "approach": "approach",
+      "jump": "jump"
+    },
+    "action_size": 5,
+    "environment_variant": "wide24-start-back4",
+    "source_layout_manifest": "manifests/gaze_v10_layouts.json",
+    "unity_executable": "unity/BuildWide24/TpsTreasure.x86_64",
+    "environment_source": "environment_sources/wide24",
+    "geometry": {
+      "floor_side_m": 24,
+      "player_start_shift_m": 4,
+      "initial_horizontal_distance_m": [
+        10.05308309885531,
+        10.848502131334055
+      ],
+      "bounds_m": 11.65,
+      "platform_treasure_obstacles": "original positions and geometries"
+    },
+    "original_unstarted_plan": "configs/gaze_v10_downstream_plan.original18.json",
+    "source_unity_build_sha256": "8162b289fde17ffec19d13402dea23cd69e793e5e9936bf8d73ea94e6bdc82a2",
+    "unity_build_sha256": "9dfa6cd12975844b2a5079f2fa6437b933c6f76190e50b3550f3447accfe9829",
+    "source_layout_manifest_sha256": "e72e60d405bf1875e81085b75de1a8d0eaf9a0285560d133245741fd957c8fc8",
+    "layout_manifest_sha256": "4341188ac4c4b425439fd08ce499aa133bab590d4bfe9bed0872b07be0ecfacf",
+    "amendment_time_jst": "2026-10-20T00:55:10+09:00",
+    "training_start_gate": "All nine existing P/S/F trainers complete and exit",
+    "evaluation_start_gate": "All original 90 P/S/F validations complete; no original evaluator active",
+    "extension_of": "gaze-jump-v0.10-wide24-start-back4",
+    "control_directory": "runs/gaze_v10_2000/downstream_wide24/r_extension",
+    "preflight_time_jst": "2026-10-20T02:02:11+09:00",
+    "sources": {
+      "0": {
+        "checkpoint": "runs/gaze_v10_2000/seed0/pretrain3_seed0/checkpoint_2000.pt",
+        "sha256": "75420d6dfc990df5a9ac2bcb777ee0603313927f6a27134da54a4afcd816f464"
+      },
+      "1": {
+        "checkpoint": "runs/gaze_v10_2000/seed1/pretrain3_seed1/checkpoint_2000.pt",
+        "sha256": "b8da2c80b1847e14e9530293145a0c6f7aabbb82cbf66d7c4ab77fb07a2aad0a"
+      },
+      "2": {
+        "checkpoint": "runs/gaze_v10_2000/seed2/pretrain3_seed2/checkpoint_2000.pt",
+        "sha256": "a1ef6ae53bddd48a13990f6a148d6991d7f6ac1f36314d25d685fc153710429b"
+      }
+    },
+    "R_amendment_time_jst": "2026-10-20T02:02:11+09:00"
+  },
+  "combined_plan": {
+    "experiment": "gaze-jump-v0.10-wide24-start-back4-psfr",
+    "authorization": "User requested three primitive tasks including jump, a composite with obstacle avoidance then elevated treasure contact, one color pair, and stopping v0.9 to switch. User subsequently approved the wider preview for composite training: 24m floor and player start 4m farther from treasure. User additionally requested R: random shared encoder frozen, new heads trained.",
+    "downstream_task": "treasure",
+    "obstacle_motion": "static",
+    "success_condition": "avoid obstacle collision, jump onto platform, land, then contact treasure while on platform",
+    "conditions": [
+      "P",
+      "S",
+      "F",
+      "R"
+    ],
+    "condition_definitions": {
+      "P": "pretrained shared encoder frozen; new actor and critic heads trained",
+      "S": "random shared encoder; new actor and critic heads; all trained",
+      "F": "pretrained shared encoder unfrozen; new actor and critic heads; all trained",
+      "R": "random shared encoder frozen; new actor and critic trained"
+    },
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "source_checkpoint_updates": 2000,
+    "source_seed_policy": "P and F use the primitive model from the matching seed",
+    "model_width": 256,
+    "updates_per_condition_seed": 2000,
+    "rollout": 256,
+    "decisions_per_condition_seed": 512000,
+    "checkpoint_every": 200,
+    "checkpoint_publication": "atomic rename after complete serialization",
+    "epochs": 2,
+    "minibatch": 32,
+    "shared_lr": 0.00003,
+    "head_lr": 0.0001,
+    "training_parallelism": 3,
+    "evaluation_parallelism": 1,
+    "launch_order": [
+      "P_seed0",
+      "S_seed0",
+      "F_seed0",
+      "P_seed1",
+      "S_seed1",
+      "F_seed1",
+      "P_seed2",
+      "S_seed2",
+      "F_seed2",
+      "R_seed0",
+      "R_seed1",
+      "R_seed2"
+    ],
+    "validation_episodes_per_checkpoint": 32,
+    "validation_environment_seed": 9000,
+    "validation_policy": "deterministic tanh mean",
+    "validation_updates": [
+      200,
+      400,
+      600,
+      800,
+      1000,
+      1200,
+      1400,
+      1600,
+      1800,
+      2000
+    ],
+    "total_training_jobs": 12,
+    "total_validations": 120,
+    "matching": {
+      "network_seed": "20000 + seed",
+      "head_seed": "30000 + seed",
+      "environment_seed": "10000 + seed",
+      "action_sampling_seed": "40000 + seed",
+      "new_heads": "same initial actor and critic weights for P, S, F, R within each seed",
+      "random_shared": "R and S share identical random initial shared encoder weights for the matching seed"
+    },
+    "layout_manifest": "manifests/gaze_v10_wide24_layouts.json",
+    "remote_output": "/home/s6323038/atomic-task-jump-v10/runs/gaze_v10_2000/downstream_wide24",
+    "training_success_denominator": "sum successes + failures + interruptions over unique updates; exclude unfinished episodes and discarded surplus transitions",
+    "status": "running_PSF_with_R_queued",
+    "source_checkpoint_pattern": "runs/gaze_v10_2000/seed{seed}/pretrain3_seed{seed}/checkpoint_2000.pt",
+    "source_agent_decisions": 1536000,
+    "primitive_validation_episodes_per_head": 36,
+    "source_head_keys": [
+      "look",
+      "approach",
+      "jump"
+    ],
+    "start_gate": "All 3 seeds finish 2000 updates, deterministic validation of all 3 tasks (36 episodes each), and primitive processes exit.",
+    "appearance": "target and platform orange / avatar cyan in all tasks",
+    "primitive_head_transfer": "Discard all 3 primitive actor/critic pairs; transfer only shared encoder",
+    "source_rollout_groups": [
+      "look",
+      "approach",
+      "jump"
+    ],
+    "source_task_head_map": {
+      "look": "look",
+      "approach": "approach",
+      "jump": "jump"
+    },
+    "action_size": 5,
+    "environment_variant": "wide24-start-back4",
+    "source_layout_manifest": "manifests/gaze_v10_layouts.json",
+    "unity_executable": "unity/BuildWide24/TpsTreasure.x86_64",
+    "environment_source": "environment_sources/wide24",
+    "geometry": {
+      "floor_side_m": 24,
+      "player_start_shift_m": 4,
+      "initial_horizontal_distance_m": [
+        10.05308309885531,
+        10.848502131334055
+      ],
+      "bounds_m": 11.65,
+      "platform_treasure_obstacles": "original positions and geometries"
+    },
+    "original_unstarted_plan": "configs/gaze_v10_downstream_plan.original18.json",
+    "source_unity_build_sha256": "8162b289fde17ffec19d13402dea23cd69e793e5e9936bf8d73ea94e6bdc82a2",
+    "unity_build_sha256": "9dfa6cd12975844b2a5079f2fa6437b933c6f76190e50b3550f3447accfe9829",
+    "source_layout_manifest_sha256": "e72e60d405bf1875e81085b75de1a8d0eaf9a0285560d133245741fd957c8fc8",
+    "layout_manifest_sha256": "4341188ac4c4b425439fd08ce499aa133bab590d4bfe9bed0872b07be0ecfacf",
+    "amendment_time_jst": "2026-10-20T00:55:10+09:00",
+    "video_batches": 50,
+    "original_plan": "run.plan.json",
+    "R_plan": "r_extension/run.plan.json",
+    "R_amendment_time_jst": "2026-10-20T02:02:11+09:00"
+  },
+  "verification": {
+    "R_shared_matches_S_initial": true,
+    "R_shared_frozen_after_update": true,
+    "R_actor_and_critic_updated": true,
+    "all_heads_match_existing_initial_heads": true,
+    "R_shared_differs_from_pretrained_P": true,
+    "optimizer_contains_only_actor_critic": true,
+    "R_recording_supported": true,
+    "fixed_existing_files_unchanged": [
+      "scripts/train_downstream_pilot.py",
+      "scripts/run_gaze_v10_downstream.py",
+      "scripts/run_gaze_v10_downstream_worker.sh",
+      "scripts/evaluate_multi_pilot.py",
+      "python/tps_transfer/model.py",
+      "python/tps_transfer/ppo.py",
+      "python/tps_transfer/pilot.py",
+      "python/tps_transfer/observation.py",
+      "python/tps_transfer/depth.py",
+      "manifests/gaze_v10_wide24_layouts.json",
+      "runs/gaze_v10_2000/downstream_wide24/run.plan.json"
+    ],
+    "PPO_training_model_environment_unchanged": true,
+    "source_seed": 0,
+    "smoke_updates": 1,
+    "smoke_decisions": 32,
+    "include_in_formal_results": false,
+    "shared_initial_sha256": "ba7a11074d6acdeea358dca994c509a33e8c069e56d8a3b0fe70cbec1d640985",
+    "network_seed": 20000,
+    "head_seed": 30000,
+    "environment_seed": 10000,
+    "action_seed": 40000
+  },
+  "fixed_files": {
+    "scripts/train_downstream_pilot.py": "f92301ba7ae83a575ce719c911a9a7a987ccf6aec06c66309eceb31c7be4f7f5",
+    "scripts/run_gaze_v10_downstream.py": "5101358b44529b8f1defbe649ffc3c3e5ddfb5d9688b0190731311092a875584",
+    "scripts/run_gaze_v10_downstream_worker.sh": "85398aaf3b97a767d2618256e427f879fe3137812e10ca73ad24baefc45c52ea",
+    "scripts/evaluate_multi_pilot.py": "773b5a2bda2d5b447e0e79c155738bd8e046adaca284d1bdd7259a64f573e9f5",
+    "python/tps_transfer/model.py": "c7fedfc0d8829d9d51c5fa472f1bafc817c2eb0bb5bc4e98b9b9566023fa8c7c",
+    "python/tps_transfer/ppo.py": "41ff322b2a185334dd90841f6b506d5512bd338fa8e5d41ea39e47e2efcff690",
+    "python/tps_transfer/pilot.py": "f735ce77e30d0719f9a5593c46d32521f6cb02302177755c7e4d76aab3061e56",
+    "python/tps_transfer/observation.py": "e6167d701b6817c6d3e70639c5962b81416f98cd7b85c1753218d5cdec9a14d0",
+    "python/tps_transfer/depth.py": "1776624b8ec171bb65e476cc349608ac505f93ad04701ad72e7095b7e3aec42a",
+    "manifests/gaze_v10_wide24_layouts.json": "4341188ac4c4b425439fd08ce499aa133bab590d4bfe9bed0872b07be0ecfacf",
+    "runs/gaze_v10_2000/downstream_wide24/run.plan.json": "a754894f79f5126effe3f723b7ab5c6cc1787292199f1738585b92e46e0c9104"
+  },
+  "combined_progress": {
+    "time_jst": "2026-10-20T02:05:27+09:00",
+    "stage": "running",
+    "training_jobs_total": 12,
+    "trained_jobs": [],
+    "running_jobs": [
+      {
+        "condition": "P",
+        "seed": 0,
+        "pid": 2295494
+      },
+      {
+        "condition": "S",
+        "seed": 0,
+        "pid": 2295495
+      },
+      {
+        "condition": "F",
+        "seed": 0,
+        "pid": 2295496
+      }
+    ],
+    "queued_jobs": [
+      "P_seed1",
+      "S_seed1",
+      "F_seed1",
+      "P_seed2",
+      "S_seed2",
+      "F_seed2",
+      "R_seed0",
+      "R_seed1",
+      "R_seed2"
+    ],
+    "validations_complete": 4,
+    "validations_total": 120,
+    "active_validation": {
+      "condition": "S",
+      "seed": 0,
+      "update": 400,
+      "pid": 2308782
+    },
+    "R_stage": "waiting_for_PSF_training",
+    "original_progress": "progress.json",
+    "R_progress": "r_extension/progress.json"
+  },
+  "captured_jst": "2026-10-20T02:05:28+09:00",
+  "R_status": "2026-10-20T02:05:27+09:00 WAITING waiting_for_PSF_training\n",
+  "combined_status": "2026-10-20T02:05:27+09:00 RUNNING training=0/12 validation=4/120\n",
+  "include_smoke_in_formal_results": false,
+  "processes": {
+    "original_PSF": {
+      "pid": 2024865,
+      "alive": true,
+      "command": "/home/s6323038/atomic-task-jump-v10/.venv-gpu/bin/python -u /home/s6323038/atomic-task-jump-v10/scripts/run_gaze_v10_downstream.py "
+    },
+    "R_extension": {
+      "pid": 2307685,
+      "alive": true,
+      "command": "/home/s6323038/atomic-task-jump-v10/.venv-gpu/bin/python -u scripts/run_gaze_v10_r_extension.py "
+    },
+    "video": {
+      "pid": 2305742,
+      "alive": true,
+      "command": ".venv-gpu/bin/python -u scripts/watch_gaze_v10_videos.py "
+    }
+  },
+  "video_config": {
+    "experiment": "gaze_v10_2000",
+    "authorized_request": "Create success/failure video pipeline for each task and show every 200 updates",
+    "source_run": "runs/gaze_v10_2000",
+    "downstream_run": "runs/gaze_v10_2000/downstream_wide24",
+    "downstream_environment_variant": "wide24-start-back4",
+    "output": "runs/qualitative/every200",
+    "checkpoint_interval": 200,
+    "updates": 2000,
+    "selection_mode": "one_pair_per_task",
+    "seed_order": [
+      0,
+      1,
+      2
+    ],
+    "primitive_tasks": [
+      "look",
+      "approach",
+      "jump"
+    ],
+    "downstream_conditions": [
+      "P",
+      "S",
+      "F",
+      "R"
+    ],
+    "max_calls_per_attempt": 300,
+    "max_seconds_per_attempt": 420,
+    "worker_id": 630,
+    "display": 630,
+    "poll_seconds": 30,
+    "checkpoint_settle_seconds": 15,
+    "policy": "fresh stochastic rollout from frozen checkpoint on train layouts",
+    "selection": "first observed completed success and failure, seed order 0 then 1 then 2",
+    "fixed": [
+      "training processes",
+      "PPO",
+      "losses",
+      "rewards",
+      "observations",
+      "physics",
+      "Unity builds",
+      "layouts",
+      "training seeds",
+      "training budgets",
+      "formal validation"
+    ],
+    "changed": [
+      "independent qualitative recorder",
+      "serial checkpoint watcher",
+      "local video packaging and delivery"
+    ]
+  },
+  "video_batches": 50,
+  "addition_source_sha256": {
+    "scripts/run_gaze_v10_r_extension.py": "dcfd803ee5cdee627ff38c94eeee299adeb702f960bb9e52686a58629a031a5c",
+    "scripts/read_gaze_v10_status.py": "639eba8f2081a7c4576404c501777514cf2db6d11ee208440af683a623d379d6",
+    "scripts/test_r_extension.py": "f1d3e59d639ab524d4b08d897aa42f590ae55a8bf1ec896acb28ef7c228c2e2c",
+    "scripts/record_gaze_v10_training_examples.py": "6e9c5bea97296bc3c6bc60a9db92007037ba3886686e5a57e674515911b95047",
+    "configs/gaze_v10_r_extension_change.json": "573cd94fdbd7553f6eec1a3409de76a3e333e4e50cb74d97e2a48e6851f20877",
+    "configs/gaze_v10_r_plan.json": "404f569c87335189e634a3132fb9ecfd7d405262e3b2b56c5d56a38583430864",
+    "configs/gaze_v10_combined_plan.json": "0fbcc5909f596a8b8c9b085691d824077dc0e83cb094597f34c28a6c998e6fdf",
+    "configs/video_pipeline_v10.json": "6a9d4f4b0c0ffe0aa30335d5a368e7fd9605994835d70f1a61833a35630f3dcc"
+  }
+}

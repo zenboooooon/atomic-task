@@ -68,7 +68,7 @@ def main():
         tasks=TASKS;condition=None
     else:
         assert checkpoint['stage']=='downstream_pilot' and checkpoint['downstream_task']=='treasure'
-        assert checkpoint['condition'] in ('P','S','F')
+        assert checkpoint['condition'] in ('P','S','F','R')
         tasks=('treasure',);condition=checkpoint['condition']
     capture_tasks=args.capture_tasks or list(tasks)
     assert set(capture_tasks)<=set(tasks)

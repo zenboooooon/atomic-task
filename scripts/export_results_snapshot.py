@@ -78,6 +78,11 @@ def main():
     out.mkdir(parents=True, exist_ok=False)
     base = root / "runs/gaze_v10_2000"
     downstream = base / "downstream_wide24"
+    plan_path = downstream / "combined.run.plan.json"
+    if not plan_path.exists():
+        plan_path = downstream / "run.plan.json"
+    plan = json.loads(plan_path.read_text())
+    conditions = plan["conditions"]
     copied = {}
 
     def copy(relative, target=None):
@@ -94,13 +99,13 @@ def main():
         }
         return destination
 
-    snapshot = {"captured_start_jst": now(), "experiment": "gaze-jump-v0.10-wide24-start-back4",
+    snapshot = {"captured_start_jst": now(), "experiment": plan["experiment"],
                 "primitive_experiment": "gaze-jump-v0.10-single-color", "source_root": str(root),
                 "live_code_commit": subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=root, text=True).strip(),
                 "live_code_dirty": bool(subprocess.check_output(["git", "status", "--porcelain"], cwd=root, text=True).strip()),
                 "snapshot_consistency": "Files read sequentially while downstream training continues; see per-file times.",
                 "training_denominator": "successes + failures + interruptions, over unique updates; unfinished episodes and discarded surplus transitions excluded",
-                "primitive": {}, "downstream": {"jobs": {}}}
+                "primitive": {}, "downstream": {"conditions": conditions, "plan": plan, "jobs": {}}}
     primitive_csv, downstream_csv, summary_csv = [], [], []
     for seed in range(3):
         job = base / f"seed{seed}"
@@ -134,7 +139,7 @@ def main():
         copy(job.relative_to(root) / "pretrain3_validation.json", f"raw/primitive_seed{seed}/validation.json")
         copy(job.relative_to(root) / "pipeline.status", f"raw/primitive_seed{seed}/pipeline.status")
     for seed in range(3):
-        for condition in ("P", "S", "F"):
+        for condition in conditions:
             key = f"{condition}_seed{seed}"
             directory = downstream / key
             rows, origin = load_updates(directory)
@@ -162,11 +167,19 @@ def main():
     for label, directory in (("primitive", base), ("downstream", downstream)):
         for name in ("run.plan.json", "progress.json", "pipeline.status"):
             copy((directory / name).relative_to(root), f"raw/{label}_{name}")
-    progress = downstream / "progress.json"
+    for name in ("combined.run.plan.json", "combined.progress.json", "combined.pipeline.status"):
+        copy((downstream / name).relative_to(root), f"raw/downstream_{name}")
+    for name in ("run.plan.json", "progress.json", "pipeline.status"):
+        copy((downstream / "r_extension" / name).relative_to(root), f"raw/R_extension_{name}")
+    progress = downstream / "combined.progress.json"
+    if not progress.exists():
+        progress = downstream / "progress.json"
     snapshot["downstream"]["progress"] = json.loads(progress.read_text()) if progress.exists() else None
     snapshot["downstream"]["completed_validation_files"] = sum(len(j["validations"]) for j in snapshot["downstream"]["jobs"].values())
     for path in sorted((root / "runs/wide24_change").glob("*.json")):
         copy(path.relative_to(root), f"audit/{path.name}")
+    for path in sorted((root / "runs/r_extension_change").glob("*.json")):
+        copy(path.relative_to(root), f"audit/R_{path.name}")
     copy((base / "downstream_original18_unstarted/run.plan.json").relative_to(root), "audit/original18_unstarted_plan.json")
     snapshot["captured_end_jst"] = now()
     csv_write(out / "primitive_updates.csv", primitive_csv)

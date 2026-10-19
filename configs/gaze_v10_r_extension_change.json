@@ -1,0 +1,41 @@
+{
+  "experiment": "gaze-jump-v0.10-wide24-start-back4-r-addon",
+  "user_request": "現在のP,F,Sに加えて、ランダム初期値凍結+学習ヘッドというR条件も加えて複合タスクを学習させよう",
+  "baseline": "running v0.10 wide24 P/S/F, three seeds",
+  "authorized_change": "add R: random initialized entire shared encoder frozen; new actor and critic trained",
+  "R_definition": {
+    "shared": "same random initial shared weights as S for the matching seed; freeze spatial ViT, temporal model and action embedding",
+    "heads": "new actor/critic, identical initial weights to P/S/F for matching seed",
+    "network_seed": "20000 + seed",
+    "head_seed": "30000 + seed",
+    "environment_seed": "10000 + seed",
+    "action_sampling_seed": "40000 + seed",
+    "training_seeds": [0, 1, 2],
+    "updates_per_seed": 2000,
+    "rollout": 256,
+    "decisions_per_seed": 512000,
+    "checkpoint_every": 200,
+    "validation_episodes_per_checkpoint": 32,
+    "validation_seed": 9000,
+    "validation_policy": "deterministic tanh mean"
+  },
+  "fixed": [
+    "existing P/S/F processes, checkpoints and launch order",
+    "maximum three training jobs and one evaluator in total",
+    "wide24 environment build and layouts, observations, physics, rewards and success condition",
+    "PPO, learning rates, epochs, minibatch, model width and initialization rules",
+    "primitive results and final checkpoints",
+    "existing qualitative video selections and deliveries"
+  ],
+  "orchestration": {
+    "implementation_choice": "append R0,R1,R2 after all nine existing P/S/F training jobs; R evaluation waits for the original 90 validations",
+    "R_outputs": "runs/gaze_v10_2000/downstream_wide24/R_seed0..2",
+    "R_control": "runs/gaze_v10_2000/downstream_wide24/r_extension",
+    "aggregate_plan": "combined.run.plan.json",
+    "aggregate_progress": "combined.progress.json",
+    "aggregate_status": "combined.pipeline.status",
+    "total_training_jobs": 12,
+    "total_validations": 120,
+    "video_batches": 50
+  }
+}

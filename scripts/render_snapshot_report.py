@@ -16,8 +16,14 @@ def main():
     folder = args.snapshot.resolve()
     s = json.loads((folder / "summary.json").read_text())
     rel = folder.relative_to(root).as_posix()
+    down = s["downstream"]
+    conditions = down.get("conditions", ["P", "S", "F"])
+    condition_text = "/".join(conditions)
+    plan = down.get("plan", {})
+    validation_total = plan.get("total_validations", len(conditions) * 30)
+    launch_order = plan.get("launch_order", [f"{c}_seed{seed}" for seed in range(3) for c in conditions])
     lines = ["# v0.10 実験結果", "", f"**取得時刻: {s['captured_end_jst']}**（JST）", "",
-             "原子look/approach/jumpは全3seedの2000更新と最終validationを完了。広域版の複合P/S/Fは学習中です。",
+             f"原子look/approach/jumpは全3seedの2000更新と最終validationを完了。広域版の複合{condition_text}は下表の状態です。",
              "", "## 1. 実験条件", "",
              "- 原子: 単一配色（目標・台＝橙、自機＝シアン）、タスクごとにactor/critic各1組、幅256の共有部。",
              "- 共有部: 空間ViTと時間Transformer。4フレームのRGB＋推定深度と、間の3行動を使用。",
@@ -28,10 +34,10 @@ def main():
              "- 複合: 静的障害物3個を回避し、台へジャンプして着地し、台上の宝に接触。",
              "- 複合の広域化: 床18m→24m四方、プレイヤーを宝と反対方向へ4m後退、開始水平距離10.05–10.85m。場外判定8.65m→11.65m。",
              "- 台・宝・障害物の位置と寸法、物理・報酬・成功条件・観測・PPO・seed・学習量は維持。原子は元の18m版。",
-             "- 複合: P/S/F×3seed、各2000更新×256＝512,000判断。200更新ごとの10モデルを各32エピソードで評価、合計90評価。",
-             "- P: 学習済み共有部を固定、S: ランダム共有部を学習、F: 学習済み共有部を解凍。新規ヘッドの初期値と環境・行動seedを同じseed内で対応。",
-             "- 原子のヘッドは転移せず、共有部だけを対応seedの最終モデルから移す。",
-             "- 学習は最大3並列、複合評価は別の1枠。開始順P0,S0,F0,P1,S1,F1,P2,S2,F2。",
+             f"- 複合: {condition_text}×3seed、各2000更新×256＝512,000判断。200更新ごとの10モデルを各32エピソードで評価、合計{validation_total}評価。",
+             "- P: 学習済み共有部を固定、S: ランダム共有部を学習、F: 学習済み共有部を解凍。" + ("R: Sと同じランダム初期共有部を固定。" if "R" in conditions else "") + "新規ヘッドの初期値と環境・行動seedを同じseed内で対応。",
+             "- 原子のヘッドは全条件で転移しない。P/Fは対応seedの原子最終モデルから共有部を移し、S/Rはランダム初期共有部を使う。",
+             "- 学習は最大3並列、複合評価は別の1枠。開始順" + ",".join(launch_order) + "。" + ("Rは既存9学習の終了後、R評価は既存90評価の終了後。" if "R" in conditions else ""),
              "- 正式評価: 環境seed9000、tanh平均行動。原子は各タスク36エピソード。",
              "", "## 2. 原子の最終結果", "",
              "全seedが2000/2000更新、各1,536,000判断、最新保存はcheckpoint_2000.pt。訓練累計と最終モデルの決定的評価を別列に示します。",
@@ -50,8 +56,14 @@ def main():
         count = v["totals"]
         status = "学習中" if v["update"] and v["update"] < 2000 else "学習完了" if v["update"] == 2000 else "待機"
         lines.append(f"| {key} | {v['update']}/2000 | {v['decisions']:,} | {status} | {v['latest_checkpoint'] or 'なし'} | {count['successes']}/{count['ended']} | {rate(count['success_rate'])} |")
-    lines += ["", f"**正式な複合validation: {s['downstream']['completed_validation_files']}/90評価完了。** この時点では200更新の保存モデルにまだ到達しておらず、決定的評価結果はありません。",
-              "", "P/S/Fの初期の訓練成功率は探索中の少数エピソードです。更新数の異なる途中値や原子の成績だけで、転移の優位性を結論づけません。P/Fには原子事前学習の経験・計算量が加わるため、複合の判断数だけを総コストとしません。",
+    lines += ["", f"**正式な複合validation: {down['completed_validation_files']}/{validation_total}評価完了。**",
+              "", "| 条件・seed | 更新 | 決定的評価成功/32 | 成功率 |", "|---|---:|---:|---:|"]
+    for key, value in down["jobs"].items():
+        for update, evaluation in sorted(value["validations"].items(), key=lambda pair: int(pair[0])):
+            lines.append(f"| {key} | {update} | {evaluation['successes']}/{evaluation['episodes']} | {rate(evaluation['success_rate'])} |")
+    if not down["completed_validation_files"]:
+        lines.append("この取得時点で正式な複合validation結果はありません。")
+    lines += ["", "更新数の異なる途中値や原子の成績だけで、転移の優位性を結論づけません。P/Fには原子事前学習の経験・計算量が加わるため、複合の判断数だけを総コストとしません。",
               "", "## 4. 集計と評価の定義", "",
               "- 訓練成功率: 全unique updateのsuccesses合計 ÷（successes＋failures＋interruptions合計）。",
               "- 未完了エピソード、破棄された余剰遷移は分母に含めない。0/0は率未算出。",

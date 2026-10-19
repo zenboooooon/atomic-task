@@ -10,7 +10,7 @@
   "selection_mode": "one_pair_per_task",
   "seed_order": [0, 1, 2],
   "primitive_tasks": ["look", "approach", "jump"],
-  "downstream_conditions": ["P", "S", "F"],
+  "downstream_conditions": ["P", "S", "F", "R"],
   "max_calls_per_attempt": 300,
   "max_seconds_per_attempt": 420,
   "worker_id": 630,
