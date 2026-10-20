@@ -1,5 +1,7 @@
 # v0.10 実験結果
 
+このレポートは初回取得時点の履歴です。最新の複合決定的validationは[条件・seed別の評価レポート](DOWNSTREAM_VALIDATION.md)を参照してください。
+
 **取得時刻: 2026-10-20T01:23:16+09:00**（JST）
 
 原子look/approach/jumpは全3seedの2000更新と最終validationを完了。広域版の複合P/S/Fは学習中です。

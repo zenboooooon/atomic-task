@@ -1,14 +1,14 @@
 # ChatGPT向けの実験資料
 
-このファイルは、実験の設定・結果・実装をChatGPTに伝えるための詳細資料です。人向けの概要は[README.md](README.md)、詳細な数値は[EXPERIMENT_REPORT.md](EXPERIMENT_REPORT.md)にあります。
+このファイルは、実験の設定・結果・実装をChatGPTに伝えるための詳細資料です。人向けの概要は[README.md](README.md)、最新の複合評価は[DOWNSTREAM_VALIDATION.md](DOWNSTREAM_VALIDATION.md)、初回の全体記録は[EXPERIMENT_REPORT.md](EXPERIMENT_REPORT.md)にあります。
 
 ## 対象と記録時点
 
 - 現行実験: 原子 `gaze-jump-v0.10-single-color`。複合環境は `gaze-jump-v0.10-wide24-start-back4`、R追加後の統合計画は `gaze-jump-v0.10-wide24-start-back4-psfr`。
-- 公開スナップショット: **2026-10-20 01:23:16 JST**。継続中の学習をこの時点で読み取った記録です。
-- 原子3seedは各2000更新と最終validationを完了。複合はseed0のP/S/Fを学習中、seed1・2は待機。複合の正式validationは0/90回です。
-- **2026-10-20 02:02 JSTの変更**: R条件3seedを追加し、既存9学習ジョブの後に待機登録。上記01:23の数値スナップショットを新条件の結果に読み替えないでください。Rの結果はまだありません。
-- 更新されたスナップショットがある場合は、[results/LATEST.json](results/LATEST.json)の参照先と取得時刻を確認します。
+- 初回の全体スナップショット: **2026-10-20 01:23:16 JST**。この時点で原子3seedの2000更新と最終validationは完了し、複合seed0のP/S/Fを学習中、正式validationは0/90回でした。履歴として保持しています。
+- **2026-10-20 02:02 JSTの変更**: R条件3seedを追加し、既存9学習ジョブの後に待機登録。01:23の数値スナップショットを新条件の結果に読み替えないでください。
+- 最新の複合決定的validationスナップショット: **2026-10-20 17:15:53 JST、117/120評価**。P/S/Fの9ジョブは2000更新の最終評価まで完了、Rは各seedの1800更新まで取得済み。Rの2000更新は未評価であり、0%ではありません。
+- 最新の複合評価は[results/LATEST_VALIDATION.json](results/LATEST_VALIDATION.json)、初回の全体記録は[results/LATEST.json](results/LATEST.json)の参照先と取得時刻を確認します。今回の評価スナップショットには新しい訓練累計は含めていません。
 
 ## 現行プロトコル
 
@@ -40,10 +40,10 @@
 
 ## 読む順番
 
-1. `EXPERIMENT_REPORT.md` で現在の条件と結果の取得時刻を確認。
-2. `results/LATEST.json` の参照先にある `summary.json` と `training_summary.csv` を確認。
-3. 原子の詳細は `primitive_updates.csv` と `raw/primitive_seed*/{report,validation}.json`。
-4. 複合の詳細は `downstream_updates.csv` と `raw/downstream/`。途中経過と最終結果を区別。
+1. `DOWNSTREAM_VALIDATION.md` と `results/LATEST_VALIDATION.json` で最新の複合評価の取得時刻・条件・seed・更新数を確認。
+2. 最新評価の参照先にある `summary.json` と `validation_results.csv` を確認。未評価セルは0%に置き換えない。
+3. 初回の全体記録は `EXPERIMENT_REPORT.md` と `results/LATEST.json` の参照先の `summary.json`・`training_summary.csv`。原子の詳細は `primitive_updates.csv` と `raw/primitive_seed*/{report,validation}.json`。
+4. 初回時点の複合訓練の詳細は `downstream_updates.csv` と `raw/downstream/`。現在の最終結果と取り違えない。
 5. 実装は `PROTOCOL.md`、`configs/gaze_v10_contract.json`、`configs/gaze_v10_wide24_change.json`、`python/tps_transfer/`、`environment_sources/wide24/`。
 
 ## この実験で比較していること
@@ -103,7 +103,7 @@ Rは共有部全体（空間ViT、時間モデル、行動埋め込み）を凍�
 
 ## 結果の解釈
 
-複合は学習途中で、初期共有部P/S/F/Rの優位性を最終判断するデータはまだ揃っていません。訓練累計と最終モデルの決定的評価は、方策・配置・集計範囲が異なるため一致しません。特にseed1のjumpは訓練累計が高くても決定的最終評価では6/36であり、この違い自体を結果として保持しています。
+17:15 JST時点ではP/S/Fの2000更新最終評価は揃っていますが、Rは学習途中で2000更新最終評価が未取得です。P/S/F/R全条件の最終比較はまだ揃っていません。途中モデルの最高値を最終モデルの結果に置き換えないでください。訓練累計と最終モデルの決定的評価は、方策・配置・集計範囲が異なるため一致しません。特にseed1のjumpは訓練累計が高くても決定的最終評価では6/36であり、この違い自体を結果として保持しています。
 
 この公開スナップショットはv0.10の記録です。v0.5等の優位性を示す過去実験の最終データが全て含まれているわけではありません。
 
@@ -122,6 +122,7 @@ Rは共有部全体（空間ViT、時間モデル、行動埋め込み）を凍�
 | `unity/` | 原子と元の複合環境のUnityソース |
 | `environment_sources/wide24/` | 広域版に使ったC#・設定・シーンと差分確認 |
 | `results/snapshots/` | 集計JSON、更新ごとのCSV、元report・正式評価JSON、監査記録 |
+| `results/validation_snapshots/` | 時刻別の条件・seed・更新数別の複合決定的validation集計JSONと全評価枠CSV |
 | `media/` | 学習済みモデルの別試行動画と環境確認用動画 |
 
 `downstream_wide24`と監視用リンク`downstream`は同じ実行を指します。両方を別ジョブとして重複集計しません。旧18m版の複合計画は未開始の履歴として保存されています。

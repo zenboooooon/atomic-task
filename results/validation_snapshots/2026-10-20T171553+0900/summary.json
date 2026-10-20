@@ -1,0 +1,1100 @@
+{
+  "schema_version": 1,
+  "captured_start_jst": "2026-10-20T17:15:53+09:00",
+  "captured_end_jst": "2026-10-20T17:15:53+09:00",
+  "experiment": "gaze-jump-v0.10-wide24-start-back4-psfr",
+  "task": "treasure",
+  "conditions": [
+    "P",
+    "S",
+    "F",
+    "R"
+  ],
+  "environment_seed": 9000,
+  "policy": "deterministic tanh mean",
+  "episodes_per_checkpoint": 32,
+  "planned_updates": [
+    200,
+    400,
+    600,
+    800,
+    1000,
+    1200,
+    1400,
+    1600,
+    1800,
+    2000
+  ],
+  "completed_evaluations": 117,
+  "planned_evaluations": 120,
+  "missing_value_semantics": "Uncollected at this snapshot; never treated as zero successes.",
+  "consistency": "Captured from completed formal evaluations at the stated time while R training continued. Uncollected slots remain missing.",
+  "jobs": {
+    "P_seed0": {
+      "condition": "P",
+      "seed": 0,
+      "latest_completed": {
+        "update": 2000,
+        "decisions": 512000,
+        "successes": 0,
+        "episodes": 32,
+        "success_rate": 0.0
+      },
+      "final_2000": {
+        "update": 2000,
+        "decisions": 512000,
+        "successes": 0,
+        "episodes": 32,
+        "success_rate": 0.0
+      },
+      "evaluations": {
+        "200": {
+          "update": 200,
+          "decisions": 51200,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "400": {
+          "update": 400,
+          "decisions": 102400,
+          "successes": 8,
+          "episodes": 32,
+          "success_rate": 0.25
+        },
+        "600": {
+          "update": 600,
+          "decisions": 153600,
+          "successes": 7,
+          "episodes": 32,
+          "success_rate": 0.21875
+        },
+        "800": {
+          "update": 800,
+          "decisions": 204800,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "1000": {
+          "update": 1000,
+          "decisions": 256000,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "1200": {
+          "update": 1200,
+          "decisions": 307200,
+          "successes": 2,
+          "episodes": 32,
+          "success_rate": 0.0625
+        },
+        "1400": {
+          "update": 1400,
+          "decisions": 358400,
+          "successes": 9,
+          "episodes": 32,
+          "success_rate": 0.28125
+        },
+        "1600": {
+          "update": 1600,
+          "decisions": 409600,
+          "successes": 14,
+          "episodes": 32,
+          "success_rate": 0.4375
+        },
+        "1800": {
+          "update": 1800,
+          "decisions": 460800,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "2000": {
+          "update": 2000,
+          "decisions": 512000,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        }
+      },
+      "missing_updates": []
+    },
+    "P_seed1": {
+      "condition": "P",
+      "seed": 1,
+      "latest_completed": {
+        "update": 2000,
+        "decisions": 512000,
+        "successes": 17,
+        "episodes": 32,
+        "success_rate": 0.53125
+      },
+      "final_2000": {
+        "update": 2000,
+        "decisions": 512000,
+        "successes": 17,
+        "episodes": 32,
+        "success_rate": 0.53125
+      },
+      "evaluations": {
+        "200": {
+          "update": 200,
+          "decisions": 51200,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "400": {
+          "update": 400,
+          "decisions": 102400,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "600": {
+          "update": 600,
+          "decisions": 153600,
+          "successes": 21,
+          "episodes": 32,
+          "success_rate": 0.65625
+        },
+        "800": {
+          "update": 800,
+          "decisions": 204800,
+          "successes": 2,
+          "episodes": 32,
+          "success_rate": 0.0625
+        },
+        "1000": {
+          "update": 1000,
+          "decisions": 256000,
+          "successes": 20,
+          "episodes": 32,
+          "success_rate": 0.625
+        },
+        "1200": {
+          "update": 1200,
+          "decisions": 307200,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "1400": {
+          "update": 1400,
+          "decisions": 358400,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "1600": {
+          "update": 1600,
+          "decisions": 409600,
+          "successes": 1,
+          "episodes": 32,
+          "success_rate": 0.03125
+        },
+        "1800": {
+          "update": 1800,
+          "decisions": 460800,
+          "successes": 21,
+          "episodes": 32,
+          "success_rate": 0.65625
+        },
+        "2000": {
+          "update": 2000,
+          "decisions": 512000,
+          "successes": 17,
+          "episodes": 32,
+          "success_rate": 0.53125
+        }
+      },
+      "missing_updates": []
+    },
+    "P_seed2": {
+      "condition": "P",
+      "seed": 2,
+      "latest_completed": {
+        "update": 2000,
+        "decisions": 512000,
+        "successes": 29,
+        "episodes": 32,
+        "success_rate": 0.90625
+      },
+      "final_2000": {
+        "update": 2000,
+        "decisions": 512000,
+        "successes": 29,
+        "episodes": 32,
+        "success_rate": 0.90625
+      },
+      "evaluations": {
+        "200": {
+          "update": 200,
+          "decisions": 51200,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "400": {
+          "update": 400,
+          "decisions": 102400,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "600": {
+          "update": 600,
+          "decisions": 153600,
+          "successes": 7,
+          "episodes": 32,
+          "success_rate": 0.21875
+        },
+        "800": {
+          "update": 800,
+          "decisions": 204800,
+          "successes": 1,
+          "episodes": 32,
+          "success_rate": 0.03125
+        },
+        "1000": {
+          "update": 1000,
+          "decisions": 256000,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "1200": {
+          "update": 1200,
+          "decisions": 307200,
+          "successes": 3,
+          "episodes": 32,
+          "success_rate": 0.09375
+        },
+        "1400": {
+          "update": 1400,
+          "decisions": 358400,
+          "successes": 31,
+          "episodes": 32,
+          "success_rate": 0.96875
+        },
+        "1600": {
+          "update": 1600,
+          "decisions": 409600,
+          "successes": 16,
+          "episodes": 32,
+          "success_rate": 0.5
+        },
+        "1800": {
+          "update": 1800,
+          "decisions": 460800,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "2000": {
+          "update": 2000,
+          "decisions": 512000,
+          "successes": 29,
+          "episodes": 32,
+          "success_rate": 0.90625
+        }
+      },
+      "missing_updates": []
+    },
+    "S_seed0": {
+      "condition": "S",
+      "seed": 0,
+      "latest_completed": {
+        "update": 2000,
+        "decisions": 512000,
+        "successes": 0,
+        "episodes": 32,
+        "success_rate": 0.0
+      },
+      "final_2000": {
+        "update": 2000,
+        "decisions": 512000,
+        "successes": 0,
+        "episodes": 32,
+        "success_rate": 0.0
+      },
+      "evaluations": {
+        "200": {
+          "update": 200,
+          "decisions": 51200,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "400": {
+          "update": 400,
+          "decisions": 102400,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "600": {
+          "update": 600,
+          "decisions": 153600,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "800": {
+          "update": 800,
+          "decisions": 204800,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "1000": {
+          "update": 1000,
+          "decisions": 256000,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "1200": {
+          "update": 1200,
+          "decisions": 307200,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "1400": {
+          "update": 1400,
+          "decisions": 358400,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "1600": {
+          "update": 1600,
+          "decisions": 409600,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "1800": {
+          "update": 1800,
+          "decisions": 460800,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "2000": {
+          "update": 2000,
+          "decisions": 512000,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        }
+      },
+      "missing_updates": []
+    },
+    "S_seed1": {
+      "condition": "S",
+      "seed": 1,
+      "latest_completed": {
+        "update": 2000,
+        "decisions": 512000,
+        "successes": 0,
+        "episodes": 32,
+        "success_rate": 0.0
+      },
+      "final_2000": {
+        "update": 2000,
+        "decisions": 512000,
+        "successes": 0,
+        "episodes": 32,
+        "success_rate": 0.0
+      },
+      "evaluations": {
+        "200": {
+          "update": 200,
+          "decisions": 51200,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "400": {
+          "update": 400,
+          "decisions": 102400,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "600": {
+          "update": 600,
+          "decisions": 153600,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "800": {
+          "update": 800,
+          "decisions": 204800,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "1000": {
+          "update": 1000,
+          "decisions": 256000,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "1200": {
+          "update": 1200,
+          "decisions": 307200,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "1400": {
+          "update": 1400,
+          "decisions": 358400,
+          "successes": 7,
+          "episodes": 32,
+          "success_rate": 0.21875
+        },
+        "1600": {
+          "update": 1600,
+          "decisions": 409600,
+          "successes": 10,
+          "episodes": 32,
+          "success_rate": 0.3125
+        },
+        "1800": {
+          "update": 1800,
+          "decisions": 460800,
+          "successes": 8,
+          "episodes": 32,
+          "success_rate": 0.25
+        },
+        "2000": {
+          "update": 2000,
+          "decisions": 512000,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        }
+      },
+      "missing_updates": []
+    },
+    "S_seed2": {
+      "condition": "S",
+      "seed": 2,
+      "latest_completed": {
+        "update": 2000,
+        "decisions": 512000,
+        "successes": 0,
+        "episodes": 32,
+        "success_rate": 0.0
+      },
+      "final_2000": {
+        "update": 2000,
+        "decisions": 512000,
+        "successes": 0,
+        "episodes": 32,
+        "success_rate": 0.0
+      },
+      "evaluations": {
+        "200": {
+          "update": 200,
+          "decisions": 51200,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "400": {
+          "update": 400,
+          "decisions": 102400,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "600": {
+          "update": 600,
+          "decisions": 153600,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "800": {
+          "update": 800,
+          "decisions": 204800,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "1000": {
+          "update": 1000,
+          "decisions": 256000,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "1200": {
+          "update": 1200,
+          "decisions": 307200,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "1400": {
+          "update": 1400,
+          "decisions": 358400,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "1600": {
+          "update": 1600,
+          "decisions": 409600,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "1800": {
+          "update": 1800,
+          "decisions": 460800,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "2000": {
+          "update": 2000,
+          "decisions": 512000,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        }
+      },
+      "missing_updates": []
+    },
+    "F_seed0": {
+      "condition": "F",
+      "seed": 0,
+      "latest_completed": {
+        "update": 2000,
+        "decisions": 512000,
+        "successes": 0,
+        "episodes": 32,
+        "success_rate": 0.0
+      },
+      "final_2000": {
+        "update": 2000,
+        "decisions": 512000,
+        "successes": 0,
+        "episodes": 32,
+        "success_rate": 0.0
+      },
+      "evaluations": {
+        "200": {
+          "update": 200,
+          "decisions": 51200,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "400": {
+          "update": 400,
+          "decisions": 102400,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "600": {
+          "update": 600,
+          "decisions": 153600,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "800": {
+          "update": 800,
+          "decisions": 204800,
+          "successes": 3,
+          "episodes": 32,
+          "success_rate": 0.09375
+        },
+        "1000": {
+          "update": 1000,
+          "decisions": 256000,
+          "successes": 19,
+          "episodes": 32,
+          "success_rate": 0.59375
+        },
+        "1200": {
+          "update": 1200,
+          "decisions": 307200,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "1400": {
+          "update": 1400,
+          "decisions": 358400,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "1600": {
+          "update": 1600,
+          "decisions": 409600,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "1800": {
+          "update": 1800,
+          "decisions": 460800,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "2000": {
+          "update": 2000,
+          "decisions": 512000,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        }
+      },
+      "missing_updates": []
+    },
+    "F_seed1": {
+      "condition": "F",
+      "seed": 1,
+      "latest_completed": {
+        "update": 2000,
+        "decisions": 512000,
+        "successes": 0,
+        "episodes": 32,
+        "success_rate": 0.0
+      },
+      "final_2000": {
+        "update": 2000,
+        "decisions": 512000,
+        "successes": 0,
+        "episodes": 32,
+        "success_rate": 0.0
+      },
+      "evaluations": {
+        "200": {
+          "update": 200,
+          "decisions": 51200,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "400": {
+          "update": 400,
+          "decisions": 102400,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "600": {
+          "update": 600,
+          "decisions": 153600,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "800": {
+          "update": 800,
+          "decisions": 204800,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "1000": {
+          "update": 1000,
+          "decisions": 256000,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "1200": {
+          "update": 1200,
+          "decisions": 307200,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "1400": {
+          "update": 1400,
+          "decisions": 358400,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "1600": {
+          "update": 1600,
+          "decisions": 409600,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "1800": {
+          "update": 1800,
+          "decisions": 460800,
+          "successes": 1,
+          "episodes": 32,
+          "success_rate": 0.03125
+        },
+        "2000": {
+          "update": 2000,
+          "decisions": 512000,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        }
+      },
+      "missing_updates": []
+    },
+    "F_seed2": {
+      "condition": "F",
+      "seed": 2,
+      "latest_completed": {
+        "update": 2000,
+        "decisions": 512000,
+        "successes": 4,
+        "episodes": 32,
+        "success_rate": 0.125
+      },
+      "final_2000": {
+        "update": 2000,
+        "decisions": 512000,
+        "successes": 4,
+        "episodes": 32,
+        "success_rate": 0.125
+      },
+      "evaluations": {
+        "200": {
+          "update": 200,
+          "decisions": 51200,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "400": {
+          "update": 400,
+          "decisions": 102400,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "600": {
+          "update": 600,
+          "decisions": 153600,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "800": {
+          "update": 800,
+          "decisions": 204800,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "1000": {
+          "update": 1000,
+          "decisions": 256000,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "1200": {
+          "update": 1200,
+          "decisions": 307200,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "1400": {
+          "update": 1400,
+          "decisions": 358400,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "1600": {
+          "update": 1600,
+          "decisions": 409600,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "1800": {
+          "update": 1800,
+          "decisions": 460800,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "2000": {
+          "update": 2000,
+          "decisions": 512000,
+          "successes": 4,
+          "episodes": 32,
+          "success_rate": 0.125
+        }
+      },
+      "missing_updates": []
+    },
+    "R_seed0": {
+      "condition": "R",
+      "seed": 0,
+      "latest_completed": {
+        "update": 1800,
+        "decisions": 460800,
+        "successes": 0,
+        "episodes": 32,
+        "success_rate": 0.0
+      },
+      "final_2000": null,
+      "evaluations": {
+        "200": {
+          "update": 200,
+          "decisions": 51200,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "400": {
+          "update": 400,
+          "decisions": 102400,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "600": {
+          "update": 600,
+          "decisions": 153600,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "800": {
+          "update": 800,
+          "decisions": 204800,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "1000": {
+          "update": 1000,
+          "decisions": 256000,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "1200": {
+          "update": 1200,
+          "decisions": 307200,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "1400": {
+          "update": 1400,
+          "decisions": 358400,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "1600": {
+          "update": 1600,
+          "decisions": 409600,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "1800": {
+          "update": 1800,
+          "decisions": 460800,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        }
+      },
+      "missing_updates": [
+        2000
+      ]
+    },
+    "R_seed1": {
+      "condition": "R",
+      "seed": 1,
+      "latest_completed": {
+        "update": 1800,
+        "decisions": 460800,
+        "successes": 0,
+        "episodes": 32,
+        "success_rate": 0.0
+      },
+      "final_2000": null,
+      "evaluations": {
+        "200": {
+          "update": 200,
+          "decisions": 51200,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "400": {
+          "update": 400,
+          "decisions": 102400,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "600": {
+          "update": 600,
+          "decisions": 153600,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "800": {
+          "update": 800,
+          "decisions": 204800,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "1000": {
+          "update": 1000,
+          "decisions": 256000,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "1200": {
+          "update": 1200,
+          "decisions": 307200,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "1400": {
+          "update": 1400,
+          "decisions": 358400,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "1600": {
+          "update": 1600,
+          "decisions": 409600,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "1800": {
+          "update": 1800,
+          "decisions": 460800,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        }
+      },
+      "missing_updates": [
+        2000
+      ]
+    },
+    "R_seed2": {
+      "condition": "R",
+      "seed": 2,
+      "latest_completed": {
+        "update": 1800,
+        "decisions": 460800,
+        "successes": 0,
+        "episodes": 32,
+        "success_rate": 0.0
+      },
+      "final_2000": null,
+      "evaluations": {
+        "200": {
+          "update": 200,
+          "decisions": 51200,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "400": {
+          "update": 400,
+          "decisions": 102400,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "600": {
+          "update": 600,
+          "decisions": 153600,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "800": {
+          "update": 800,
+          "decisions": 204800,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "1000": {
+          "update": 1000,
+          "decisions": 256000,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "1200": {
+          "update": 1200,
+          "decisions": 307200,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "1400": {
+          "update": 1400,
+          "decisions": 358400,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "1600": {
+          "update": 1600,
+          "decisions": 409600,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        },
+        "1800": {
+          "update": 1800,
+          "decisions": 460800,
+          "successes": 0,
+          "episodes": 32,
+          "success_rate": 0.0
+        }
+      },
+      "missing_updates": [
+        2000
+      ]
+    }
+  },
+  "verification": {
+    "completed_evaluations_checked": 117,
+    "episodes_per_evaluation_checked": 32,
+    "episode_success_totals_match": true,
+    "environment_seed_checked": 9000,
+    "environment_build_and_layout_match_protocol": true
+  }
+}
