@@ -1,10 +1,10 @@
 {
-  "snapshot": "results/validation_snapshots/2026-10-20T171553+0900",
-  "captured_jst": "2026-10-20T17:15:53+09:00",
-  "summary": "results/validation_snapshots/2026-10-20T171553+0900/summary.json",
-  "csv": "results/validation_snapshots/2026-10-20T171553+0900/validation_results.csv",
+  "snapshot": "results/validation_snapshots/2026-10-20T181559+0900",
+  "captured_jst": "2026-10-20T18:15:59+09:00",
+  "summary": "results/validation_snapshots/2026-10-20T181559+0900/summary.json",
+  "csv": "results/validation_snapshots/2026-10-20T181559+0900/validation_results.csv",
   "report": "DOWNSTREAM_VALIDATION.md",
-  "completed_evaluations": 117,
+  "completed_evaluations": 120,
   "planned_evaluations": 120,
-  "R_final_evaluation_complete": false
+  "R_final_evaluation_complete": true
 }
